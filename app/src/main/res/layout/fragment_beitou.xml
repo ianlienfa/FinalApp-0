@@ -26,10 +26,8 @@
     <ImageView
         android:id="@+id/beitouimage"
         android:layout_width="172.32dp"
-
         android:layout_height="101.76dp"
         android:layout_marginTop="171.68dp"
-
         android:scaleType="centerCrop"
         android:layout_alignStart="@id/beitoutitle"
         android:layout_alignParentTop="true"
@@ -41,7 +39,6 @@
         android:layout_width="98.4dp"
         android:layout_height="227.76dp"
         android:layout_marginTop="291.91dp"
-        android:elevation="10dp"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/beitouimage2"
         android:layout_alignStart="@id/beitouimage"

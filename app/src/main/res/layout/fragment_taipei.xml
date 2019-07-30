@@ -1,81 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/memoryboard">
+    android:background="@drawable/gradient_background"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/taipeititle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="台北車站"
-        android:textColor="#FFFFFFFF"
-        android:textSize="40dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="80dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/taipeitext"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rectangle74"
+        android:layout_marginLeft="44.16dp"
+        android:layout_marginTop="85.94dp"
         android:gravity="center"
-        android:text="台北車站好好逛阿嗷嗷 !!"
-        android:textSize="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="60dp"
-        app:layout_constraintTop_toBottomOf="@+id/taipeiimage3"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:text="台北車站"
+        android:textColor="#FFFFFF"
+        android:textSize="46sp"
+        android:textStyle="bold"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"/>
 
     <ImageView
         android:id="@+id/taipeiimage"
-        android:layout_width="140dp"
-        android:layout_height="100dp"
-        android:background="#00000000"
-        android:scaleType="fitStart"
+        android:layout_width="172.32dp"
+        android:layout_height="101.76dp"
+        android:layout_marginTop="171.68dp"
+        android:scaleType="centerCrop"
         app:srcCompat="@drawable/taipeiimage2"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="70dp"
-        app:layout_constraintTop_toBottomOf="@+id/taipeititle"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:layout_alignStart="@+id/taipeititle"
+        android:layout_alignParentTop="true"/>
 
     <ImageView
         android:id="@+id/taipeiimage2"
-        android:layout_width="160dp"
-        android:layout_height="120dp"
-        android:background="#00000000"
-        android:scaleType="fitXY"
+        android:layout_width="98.4dp"
+        android:layout_height="227.76dp"
+        android:layout_marginTop="291.91dp"
+        android:scaleType="centerCrop"
         app:srcCompat="@drawable/taipeiimage1"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="100dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/taipeitext"/>
+        android:layout_alignStart="@id/taipeiimage"
+        android:layout_alignParentTop="true"
 
-    <ImageView
+        />
+
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/taipeiimage3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:background="#00000000"
-        android:scaleType="fitXY"
-        app:srcCompat="@drawable/person1"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/taipeititle"
-        app:layout_constraintStart_toEndOf="@+id/taipeiimage"/>
+        android:layout_width="79.68dp"
+        android:layout_height="79.68dp"
+        android:layout_marginStart="239.04dp"
+        android:elevation="2dp"
+        android:src="@drawable/person2"
+        android:layout_alignBottom="@id/taipeiimage"
+        android:layout_alignParentStart="true"/>
+
+
+    <TextView
+        android:id="@+id/taipeitext"
+        android:layout_width="147.84dp"
+        android:layout_height="324.88dp"
+        android:background="@drawable/background_of_text_up_ian"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="288.07dp"
+        android:layout_alignEnd="@id/taipeiimage3"
+        android:text="太好玩啦!\n好喜歡這裡的衣服跟食物!\n每次跟audrey出去都會很開心壓嗚嗚嗚"
+        android:layout_marginEnd="-7dp"
+        android:textColor="#25475B"
+        android:textSize="15dp"
+        android:gravity="center"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"/>
+
+
+
+
+
 
     <ImageView
         android:id="@+id/emptyimage4"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="#00000000"
-        android:scaleType="fitXY"
         app:srcCompat="@drawable/p1"
-        android:layout_marginRight="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/taipeiimage2"/>
+        android:layout_width="74.88dp"
+        android:layout_height="74.88dp"
+        android:layout_marginTop="537.8dp"
+        android:layout_alignStart="@id/taipeiimage2"
+        android:layout_alignParentTop="true"/>
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

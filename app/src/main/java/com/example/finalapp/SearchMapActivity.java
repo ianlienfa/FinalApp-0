@@ -511,7 +511,7 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
                 }
                 break;
             case R.id.camera:
-                Intent mIntent=getPackageManager().getLaunchIntentForPackage("com.ar.test");
+                Intent mIntent=getPackageManager().getLaunchIntentForPackage("com.AR.bird");
                 if (mIntent!=null){
                     startActivity(mIntent);
                 }
