@@ -249,6 +249,7 @@
         />
 
     <Button
+        android:id="@+id/story_closebutton1"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="156dp"

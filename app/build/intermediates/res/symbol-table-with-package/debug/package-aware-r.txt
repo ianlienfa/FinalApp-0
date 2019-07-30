@@ -13,6 +13,9 @@ anim abc_tooltip_enter
 anim abc_tooltip_exit
 anim pressdown
 anim pressup
+anim show
+anim show_character
+anim show_character_b
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -1166,6 +1169,7 @@ id star4
 id star5
 id start
 id status_bar_latest_event_content
+id story_closebutton1
 id submenuarrow
 id submit_area
 id tabMode

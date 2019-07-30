@@ -48,6 +48,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -136,6 +137,17 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
     int count;
     boolean found2[]=new boolean[5];
     String username;
+
+
+    //ian's new things starts from here
+    ImageView first_nfc_alert_vis;
+    //這個是故事黑黑的背景
+    TextView place_name1_vis;
+    ScrollView scrollView_for_nfc1_vis;
+    //兩個小男孩
+    ImageView cuteboy_nfc_vis1;
+    ImageView cuteboy_nfc_vis2;
+    Button story_closebutton1;
 
 
     private TimerTask task = new TimerTask() {
@@ -258,6 +270,13 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
         person4.setOnTouchListener(touchlistener);
 
         //ian's new thing starts from here
+        first_nfc_alert_vis  = v1.findViewById(R.id.first_nfc_alert_vis);
+        place_name1_vis = v1.findViewById(R.id.place_name1_vis);
+        scrollView_for_nfc1_vis = v1.findViewById(R.id.scrollView_for_nfc1_vis);
+        cuteboy_nfc_vis1 = v1.findViewById(R.id.cuteboy_nfc_vis1);
+        cuteboy_nfc_vis2 = v1.findViewById(R.id.cuteboy_nfc_vis2);
+        story_closebutton1 = v1.findViewById(R.id.story_closebutton1);
+        //stops here
 
         SupportMapFragment mapFragment = (SupportMapFragment) this.getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -613,9 +632,32 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
         if (cardID.equals("04B0F359210000")) {
             if (!foundstamp1) {
 
+                first_nfc_alert_vis.setVisibility(View.VISIBLE);
+                place_name1_vis.setVisibility(View.VISIBLE);
+                scrollView_for_nfc1_vis.setVisibility(View.VISIBLE);
+                cuteboy_nfc_vis1.setVisibility(View.VISIBLE);
+                cuteboy_nfc_vis2.setVisibility(View.VISIBLE);
+                story_closebutton1.setVisibility(View.VISIBLE);
 
+                first_nfc_alert_vis.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show));
+                place_name1_vis.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show));
+                scrollView_for_nfc1_vis.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show));
+                cuteboy_nfc_vis1.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                cuteboy_nfc_vis2.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character_b));
+                story_closebutton1.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
 
+                story_closebutton1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 
+                        first_nfc_alert_vis.setVisibility(View.INVISIBLE);
+                        place_name1_vis.setVisibility(View.INVISIBLE);
+                        scrollView_for_nfc1_vis.setVisibility(View.INVISIBLE);
+                        cuteboy_nfc_vis1.setVisibility(View.INVISIBLE);
+                        cuteboy_nfc_vis2.setVisibility(View.INVISIBLE);
+                        story_closebutton1.setVisibility(View.INVISIBLE);
+                    }
+                });
 
                 stamp1.setImageResource(R.drawable.p1);
                 ObjectAnimator animTxtAlpha =
