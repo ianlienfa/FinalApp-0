@@ -9,6 +9,7 @@ MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\user\.gradle\cach
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\user\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\5eb2dd7360124fbd429cecb2a51d411e\AndroidManifest.xml:2:1-11:12
 MERGED from [nctu.fintech:appmate:1.3.2] C:\Users\user\.gradle\caches\transforms-1\files-1.1\appmate-1.3.2.aar\834788edc0284ed9d86037e6bc1c7a30\AndroidManifest.xml:2:1-17:12
 MERGED from [com.google.android.gms:play-services-maps:16.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.0.0.aar\209ab1788d4543f43a393aaa1c769014\AndroidManifest.xml:17:1-32:12
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\circleimageview-3.0.0.aar\488de7c023e71e3236e89348e13b544e\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\97df8d2b6e1995fa3d31a6e0c8db0dc8\AndroidManifest.xml:17:1-29:12
 MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\1c62ef19ede7573ddf8043f65d185d64\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-basement-16.0.1.aar\faf6ebe2cd3f80307f868b798326267e\AndroidManifest.xml:17:1-28:12
@@ -107,6 +108,8 @@ MERGED from [nctu.fintech:appmate:1.3.2] C:\Users\user\.gradle\caches\transforms
 MERGED from [nctu.fintech:appmate:1.3.2] C:\Users\user\.gradle\caches\transforms-1\files-1.1\appmate-1.3.2.aar\834788edc0284ed9d86037e6bc1c7a30\AndroidManifest.xml:11:5-15:19
 MERGED from [com.google.android.gms:play-services-maps:16.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.0.0.aar\209ab1788d4543f43a393aaa1c769014\AndroidManifest.xml:30:5-20
 MERGED from [com.google.android.gms:play-services-maps:16.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.0.0.aar\209ab1788d4543f43a393aaa1c769014\AndroidManifest.xml:30:5-20
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\circleimageview-3.0.0.aar\488de7c023e71e3236e89348e13b544e\AndroidManifest.xml:9:5-20
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\circleimageview-3.0.0.aar\488de7c023e71e3236e89348e13b544e\AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\97df8d2b6e1995fa3d31a6e0c8db0dc8\AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\97df8d2b6e1995fa3d31a6e0c8db0dc8\AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\1c62ef19ede7573ddf8043f65d185d64\AndroidManifest.xml:7:5-20
@@ -241,6 +244,8 @@ MERGED from [nctu.fintech:appmate:1.3.2] C:\Users\user\.gradle\caches\transforms
 MERGED from [nctu.fintech:appmate:1.3.2] C:\Users\user\.gradle\caches\transforms-1\files-1.1\appmate-1.3.2.aar\834788edc0284ed9d86037e6bc1c7a30\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.android.gms:play-services-maps:16.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.0.0.aar\209ab1788d4543f43a393aaa1c769014\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-maps:16.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.0.0.aar\209ab1788d4543f43a393aaa1c769014\AndroidManifest.xml:20:5-44
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\circleimageview-3.0.0.aar\488de7c023e71e3236e89348e13b544e\AndroidManifest.xml:5:5-7:41
+MERGED from [de.hdodenhof:circleimageview:3.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\circleimageview-3.0.0.aar\488de7c023e71e3236e89348e13b544e\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\97df8d2b6e1995fa3d31a6e0c8db0dc8\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-base-16.0.1.aar\97df8d2b6e1995fa3d31a6e0c8db0dc8\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-tasks-16.0.1.aar\1c62ef19ede7573ddf8043f65d185d64\AndroidManifest.xml:5:5-44
