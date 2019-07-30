@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background">
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_marginBottom="17dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/tamsuitag1"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/tagshape"
+                android:text="親子"
+                android:textColor="#149AAD"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/tamsuitag2"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/tagshape"
+                android:text="在地阿嬤溫馨推薦"
+                android:textColor="#149AAD"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/tamsuitag3"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/tagshape"
+                android:text="文青必去"
+                android:textColor="#149AAD"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/tamsuitag4"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/tagshape"
+                android:text="休閒"
+                android:textColor="#149AAD"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/tamsuitag5"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/tagshape"
+                android:text="吃貨"
+                android:textColor="#149AAD"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="78dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/tamsuiviewgroup1"
+                android:layout_width="300dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center|top"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/boardshape"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/tamsuiview1"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/tamsui3"/>
+
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tamsuiviewname1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="花博公園"
+                        android:textSize="18dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tamsuitext1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:text="於 " />
+
+                        <TextView
+                            android:id="@+id/tamsuiviewlocation1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textColor="#82CCE1"
+                            android:text="圓山站1號出口" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tamsuiviewtext1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="#自然 #親子"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:id="@+id/tamsuistar1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="15dp"
+                        android:src="@drawable/star3"
+                        android:scaleType="fitStart" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tamsuiviewgroup2"
+                android:layout_width="300dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center|top"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/boardshape"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/tamsuiview2"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:src="@drawable/tamsui2"
+                    android:layout_marginLeft="20dp" />
+
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tamsuiviewname2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="落雨松小徑"
+                        android:textSize="18dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tamsuitext2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="於 "
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:id="@+id/tamsuiviewlocation2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="復興崗站"
+                            android:textColor="#82CCE1"
+                            android:textSize="14dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tamsuiviewtext2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="#自然 #在地阿嬤溫馨推薦"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:id="@+id/tamsuistar2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="15dp"
+                        android:src="@drawable/star4"
+                        android:scaleType="fitStart" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tamsuiviewgroup3"
+                android:layout_width="300dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center|top"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/boardshape"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/tamsuiview3"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:src="@drawable/tamsui1"
+                    android:layout_marginLeft="20dp" />
+
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tamsuiviewname3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="淡水老街"
+                        android:textSize="18dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/text3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:text="於 " />
+
+                        <TextView
+                            android:id="@+id/tamsuiviewlocation3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14dp"
+                            android:textColor="#82CCE1"
+                            android:text="淡水站1號出口" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tamsuiviewtext3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="#休閒 #吃貨"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:id="@+id/tamsuistar3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="15dp"
+                        android:src="@drawable/star4"
+                        android:scaleType="fitStart" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

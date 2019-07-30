@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".CollectionActivity">
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginBottom="222dp"
+        android:text="嗨！恩衍"
+        android:textColor="#ffffffff"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/collect3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="63dp"
+        android:text="快來看看你的旅行回憶!"
+        android:textColor="#ffffffff"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/collect2"
+        app:layout_constraintStart_toStartOf="@+id/tv1"
+        app:layout_constraintTop_toBottomOf="@+id/tv1" />
+
+    <ImageButton
+        android:id="@+id/collect1"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="222dp"
+        android:layout_marginBottom="100dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/collect4"
+        app:layout_constraintEnd_toEndOf="@+id/collect3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/collect3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/collect1" />
+
+    <ImageButton
+        android:id="@+id/collect2"
+        android:layout_width="175dp"
+        android:layout_height="170dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/collect5"
+        app:layout_constraintEnd_toEndOf="@+id/collect5"
+        app:layout_constraintTop_toBottomOf="@+id/tv2"
+        app:srcCompat="@drawable/collect2" />
+
+    <ImageButton
+        android:id="@+id/collect3"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="214dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/collect4"
+        app:layout_constraintTop_toBottomOf="@+id/tv1"
+        app:srcCompat="@drawable/collect3" />
+
+    <ImageButton
+        android:id="@+id/collect4"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="125dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/collect5"
+        app:layout_constraintTop_toBottomOf="@+id/collect1"
+        app:srcCompat="@drawable/collect4" />
+
+    <ImageButton
+        android:id="@+id/collect5"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="160dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/collect4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/collect2"
+        app:srcCompat="@drawable/collect5" />
+
+
+</android.support.constraint.ConstraintLayout>

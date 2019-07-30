@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/memorywrite"
+    android:gravity="center|top"
+    android:orientation="vertical"
+    tools:context=".MemoryWriteActivity">
+
+    <EditText
+        android:id="@+id/memorywritetext"
+        android:layout_width="301dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/diaryshape"
+        android:ems="10"
+        android:gravity="top|center"
+        android:inputType="textPersonName"
+        android:textColor="#82CCEE"
+        android:textColorLink="#82CCEE"
+        android:textCursorDrawable="@drawable/edittextkeycolor"
+        android:theme="@style/MyEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/memorydiary" />
+
+    <ImageButton
+        android:id="@+id/memorysendwrite"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/writesend"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/memoryselectphoto"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="left"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="10dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toBottomOf="@+id/memorypictureimage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/addphoto" />
+
+    <ImageButton
+        android:id="@+id/memoryselectphoto2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="left"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toBottomOf="@+id/memorypictureimage"
+        app:layout_constraintStart_toEndOf="@+id/memoryselectphoto"
+        app:srcCompat="@drawable/addphoto" />
+
+    <TextView
+        android:id="@+id/memorywriteTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="撰寫-淡水站"
+        android:textColor="#FFFFFFFF"
+        android:textSize="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/memorydiary"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="30dp"
+        android:background="#00000000"
+        android:scaleType="fitStart"
+        android:layout_marginTop="45dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/diary"
+        app:layout_constraintTop_toBottomOf="@+id/memorywriteTitle"/>
+
+    <ImageView
+        android:id="@+id/memorypictureimage"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:background="#00000000"
+        android:scaleType="fitStart"
+        app:srcCompat="@drawable/group26"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/memorywritetext"/>
+
+    <ImageView
+        android:id="@+id/memorypictureimage2"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:background="#00000000"
+        android:scaleType="fitStart"
+        app:srcCompat="@drawable/group27"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/memoryselectphoto"/>
+
+    <ImageButton
+        android:id="@+id/memoryselectphoto3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="left"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="10dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toBottomOf="@+id/memorypictureimage2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/addphoto" />
+
+</android.support.constraint.ConstraintLayout>

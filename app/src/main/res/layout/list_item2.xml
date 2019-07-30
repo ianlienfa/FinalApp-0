@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center|top"
+    android:background="#00000000">
+
+    <ImageView
+        android:id="@+id/face"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/ic_launcher_background" />
+
+    <LinearLayout
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/face"
+            android:text="username"
+            android:textColor="#254F6E"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="170dp"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center_vertical"
+            android:layout_toRightOf="@+id/face"
+            android:text="TextView"
+            android:textColor="#254F6E"
+            android:textSize="15dp" />
+
+        <ImageView
+            android:id="@+id/list_star"
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/face"
+            android:scaleType="fitStart" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/face2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp" />
+
+</LinearLayout>

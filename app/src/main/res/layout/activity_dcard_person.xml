@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".DcardPersonActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            app:srcCompat="@drawable/person4" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/personname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="阿嬤"
+                android:textColor="#254F6E"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/personintro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="嬤嬤團首推嚮導"
+                android:textColor="#254F6E"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/follow"
+            android:layout_width="60dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/follow_shape"
+            android:scaleType="fitXY"
+            android:text="追蹤"
+            android:textSize="11dp"
+            android:textColor="#ffffffff" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="340dp"
+        android:layout_height="550dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:scrollbars="none"
+        android:layout_gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"></ListView>
+
+</LinearLayout>

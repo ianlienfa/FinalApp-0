@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dcardwrite"
+    tools:context=".PostWriteActivity">
+
+    <EditText
+        android:id="@+id/writetitle"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="#82CCE1"
+        android:textColorLink="#82CCE1"
+        android:textCursorDrawable="@drawable/edittextkeycolor"
+        android:textSize="15dp"
+        android:theme="@style/MyEditText"
+        android:layout_marginTop="140dp"
+        app:layout_constraintStart_toEndOf="@+id/place"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/writetext"
+        android:layout_width="301dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/diaryshape"
+        android:ems="10"
+        android:gravity="top|center"
+        android:inputType="textPersonName"
+        android:textColor="#82CCEE"
+        android:textColorLink="#82CCEE"
+        android:textCursorDrawable="@drawable/edittextkeycolor"
+        android:theme="@style/MyEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diary" />
+
+    <ImageButton
+        android:id="@+id/sendwrite"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/writesend"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/selectphoto"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_gravity="left"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toBottomOf="@+id/pictureimage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/addphoto" />
+
+    <ImageButton
+        android:id="@+id/selectphoto2"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_gravity="left"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toBottomOf="@+id/pictureimage"
+        app:layout_constraintStart_toEndOf="@+id/selectphoto"
+        app:srcCompat="@drawable/addphoto" />
+
+    <ImageButton
+        android:id="@+id/selectphoto3"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_gravity="left"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toBottomOf="@+id/pictureimage"
+        app:layout_constraintStart_toEndOf="@+id/selectphoto2"
+        app:srcCompat="@drawable/addphoto" />
+
+    <TextView
+        android:id="@+id/writeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="撰寫貼文"
+        android:textColor="#FFFFFFFF"
+        android:textSize="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/place"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:background="#00000000"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/place"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/writeTitle"/>
+
+    <ImageView
+        android:id="@+id/rank"
+        android:layout_width="60dp"
+        android:layout_height="35dp"
+        android:background="#00000000"
+        android:scaleType="fitStart"
+        app:srcCompat="@drawable/rank"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/place"/>
+
+    <ImageView
+        android:id="@+id/diary"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:background="#00000000"
+        android:scaleType="fitStart"
+        android:layout_marginStart="30dp"
+        app:srcCompat="@drawable/diary"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rank"/>
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:stepSize="1"
+        android:numStars="5"
+        app:layout_constraintStart_toEndOf="@+id/rank"
+        app:layout_constraintTop_toBottomOf="@+id/writetitle" />
+
+    <ImageView
+        android:id="@+id/pictureimage"
+        android:layout_width="60dp"
+        android:layout_height="35dp"
+        android:background="#00000000"
+        android:scaleType="fitStart"
+        app:srcCompat="@drawable/picture"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/writetext"/>
+
+</android.support.constraint.ConstraintLayout>

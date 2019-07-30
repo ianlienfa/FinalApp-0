@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/maintrippei" />
+
+    <TextView
+        android:id="@+id/MainTitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="177dp"
+        android:layout_marginLeft="70dp"
+        android:text="今天也要勇敢地玩耍！"
+        android:textColor="#ffffffff"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/loginname"
+        app:layout_constraintStart_toStartOf="@+id/MainTitle"
+        app:layout_constraintTop_toBottomOf="@+id/MainTitle" />
+
+    <EditText
+        android:id="@+id/loginname"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_edittext"
+        android:gravity="center"
+        android:hint="Enter Username "
+        android:singleLine="true"
+        android:textColor="#82CCE1"
+        android:textCursorDrawable="@drawable/edittextkeycolor"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/gobutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MainTitle2" />
+
+    <ImageButton
+        android:id="@+id/gobutton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/loginname"
+        app:layout_constraintTop_toBottomOf="@+id/loginname"
+        app:srcCompat="@drawable/go" />
+
+</LinearLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/viewbackground"
+    tools:context=".Taipei101Activity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="100dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/listView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/taipeipicture"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+
+        <LinearLayout
+            android:layout_width="160dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:gravity="left"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="55dp"
+            tools:layout_editor_absoluteY="104dp">
+
+            <TextView
+                android:id="@+id/taipeiname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFFFF"
+                android:text="台北101"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/taipeiMRTlocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFFFF"
+                android:text="台北101/世貿站4號出口"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/introtag"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:text="#購物 #第一次來台灣"
+                android:textColor="#FFFFFFFF"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/taipeistar"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:src="@drawable/star5"
+            android:layout_marginLeft="-30dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitStart" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listView3"
+        android:layout_width="wrap_content"
+        android:layout_height="510dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="51dp"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+</android.support.constraint.ConstraintLayout>

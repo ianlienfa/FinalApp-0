@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.finalapp"
+    android:targetSandboxVersion="2"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="28" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- Include required permissions for Google Maps API to run. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name="com.example.finalapp.TamsuiActivity" />
+        <activity android:name="com.example.finalapp.SearchViewActivity" />
+        <activity android:name="com.example.finalapp.PostWriteActivity" />
+        <activity android:name="com.example.finalapp.IntroductionActivity" />
+        <activity android:name="com.example.finalapp.DcardPersonActivity" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity android:name="com.example.finalapp.MemoryWriteActivity" />
+        <activity android:name="com.example.finalapp.Main2Activity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD1zHsRnjNmkG6A6ZVIV2ttJiUkXEEF2kc" />
+
+        <activity android:name="com.example.finalapp.MRTStationActivity" />
+        <activity android:name="com.example.finalapp.BeitouActivity" />
+        <activity android:name="com.example.finalapp.CollectionActivity" />
+        <activity android:name="com.example.finalapp.DcardPostActivity" />
+        <activity android:name="com.example.finalapp.SearchMapActivity" />
+        <activity android:name="com.example.finalapp.ZooActivity" />
+        <activity android:name="com.example.finalapp.GongGuanActivity" />
+        <activity android:name="com.example.finalapp.Taipei101Activity" />
+        <activity android:name="com.example.finalapp.ChatRoom" />
+        <activity android:name="com.example.finalapp.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="26.1.0" />
+    </application>
+
+</manifest>

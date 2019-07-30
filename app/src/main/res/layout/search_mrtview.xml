@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:background="@drawable/background"
+    android:layout_height="match_parent">
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="50dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/waterMRT"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/watertag1"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/tagshape"
+                android:text="自然"
+                android:textColor="#149AAD"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/watertag2"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/tagshape"
+                android:text="在地阿嬤溫馨推薦"
+                android:textColor="#149AAD"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/watertag3"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/tagshape"
+                android:text="文青必去"
+                android:textColor="#149AAD"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/watertag4"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/tagshape"
+                android:text="休閒"
+                android:textColor="#149AAD"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/watertag5"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/tagshape"
+                android:text="吃貨"
+                android:textColor="#149AAD"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ImageView
+        android:id="@+id/bkimage"
+        android:layout_width="130dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="276dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/t101"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        app:layout_constraintVertical_bias="0.768" />
+
+    <ImageButton
+        android:id="@+id/navigatewater"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="10dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toBottomOf="@+id/waterMRT"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/navigation" />
+
+    <ImageView
+        android:id="@+id/waterMRT"
+        android:layout_width="300dp"
+        android:layout_height="450dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:scaleType="fitStart"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/map" />
+
+</android.support.constraint.ConstraintLayout>
