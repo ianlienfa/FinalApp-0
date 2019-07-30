@@ -257,6 +257,7 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
         person4.setOnClickListener(this);
         person4.setOnTouchListener(touchlistener);
 
+        //ian's new thing starts from here
 
         SupportMapFragment mapFragment = (SupportMapFragment) this.getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -611,6 +612,11 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
         String cardID = ByteArrayToHexString(intent.getByteArrayExtra(NfcAdapter.EXTRA_ID));
         if (cardID.equals("04B0F359210000")) {
             if (!foundstamp1) {
+
+
+
+
+
                 stamp1.setImageResource(R.drawable.p1);
                 ObjectAnimator animTxtAlpha =
                         ObjectAnimator.ofFloat(stamp1, "alpha", 0, 1);

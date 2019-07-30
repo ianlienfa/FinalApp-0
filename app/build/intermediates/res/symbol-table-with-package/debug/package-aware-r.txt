@@ -719,6 +719,7 @@ drawable boy
 drawable bubble
 drawable camera
 drawable circle
+drawable closebutton
 drawable collect
 drawable collect1
 drawable collect2
@@ -750,6 +751,7 @@ drawable crop_image_menu_rotate_right
 drawable custom
 drawable custom12
 drawable custom4
+drawable cuteboy_nfc_vis
 drawable dcardbackground
 drawable dcardwrite
 drawable diary
@@ -765,6 +767,7 @@ drawable ellipse20
 drawable example_image1_ian
 drawable example_image4_ian
 drawable firework
+drawable first_nfc_alert
 drawable follow
 drawable follow_shape
 drawable gg23
@@ -981,6 +984,8 @@ id crop_image_menu_rotate_left
 id crop_image_menu_rotate_right
 id custom
 id customPanel
+id cuteboy_nfc_vis1
+id cuteboy_nfc_vis2
 id dark
 id decor_content_parent
 id default_activity_button
@@ -1007,6 +1012,7 @@ id face2
 id fill
 id fill_horizontal
 id fill_vertical
+id first_nfc_alert_vis
 id fitCenter
 id follow
 id forever
@@ -1094,6 +1100,7 @@ id personintro
 id personname
 id pictureimage
 id place
+id place_name1_vis
 id plus1
 id plus2
 id plus3
@@ -1116,6 +1123,7 @@ id scrollView
 id scrollView2
 id scrollView3
 id scrollView4
+id scrollView_for_nfc1_vis
 id search_badge
 id search_bar
 id search_button
