@@ -232,7 +232,7 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
 
         LayoutInflater li = getLayoutInflater().from(this);
         View v1 = li.inflate(R.layout.fragment_stamp, null);
-        View v2 = li.inflate(R.layout.fragment_map, null);
+        View v2 = li.inflate(R.layout.fragment_map2, null);
         View v3 = li.inflate(R.layout.fragment_section2, null);
         pagerList = new ArrayList<View>();
         pagerList.add(v1);
@@ -299,20 +299,6 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
                 MINIMUM_DISTANCE_CHANGE_FOR_UPDATES, // 被定位物件每移動幾公尺update一次(m)
                 (LocationListener) locationListener
         );
-
-        //map
-        navigate=(ImageButton)v2.findViewById(R.id.navigate);
-        navigate.setVisibility(View.GONE);
-        maptag1=(Button)v2.findViewById(R.id.tag1);
-        maptag1.setVisibility(View.GONE);
-        maptag2=(Button)v2.findViewById(R.id.tag2);
-        maptag2.setVisibility(View.GONE);
-        maptag3=(Button)v2.findViewById(R.id.tag3);
-        maptag3.setVisibility(View.GONE);
-        maptag4=(Button)v2.findViewById(R.id.tag4);
-        maptag4.setVisibility(View.GONE);
-        maptag5=(Button)v2.findViewById(R.id.tag5);
-        maptag5.setVisibility(View.GONE);
 
         //section2
         Taipei101Text = (ImageButton) v3.findViewById(R.id.button_Taipei101);

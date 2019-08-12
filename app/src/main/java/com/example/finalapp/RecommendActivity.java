@@ -132,7 +132,7 @@ public class RecommendActivity extends AppCompatActivity implements OnMapReadyCa
                 Tuple tuple_get[] = mTable2.get();
                 for(int i=0; i<tuple_get.length; i++){
                     if (tuple_get[i].get("Tag1").equals("第一次來台灣")||tuple_get[i].get("Tag2").equals("第一次來台灣")){
-                        tempMRTlocation[k]=tuple_get[i].get("MRTStation");
+                        tempMRTlocation[k]=tuple_get[i].get("MRTLocation");
                         tempname[k]=tuple_get[i].get("Name");
                         templongitude[k]=tuple_get[i].get("Longitude");
                         templatitude[k]=tuple_get[i].get("Latitude");
@@ -610,7 +610,7 @@ public class RecommendActivity extends AppCompatActivity implements OnMapReadyCa
 // 得知GPS位置時，根據取得的經緯度標上 marker
         if (location != null) {
             LatLng nowPos = new LatLng(location.getLatitude(), location.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(nowPos).title(keyname));
+            mMap.addMarker(new MarkerOptions().position(nowPos).title("Current"));
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos, 15));
         } else {
             Toast.makeText(RecommendActivity.this, "null", Toast.LENGTH_SHORT).show();

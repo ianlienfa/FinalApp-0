@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:background="@drawable/rounded_edittext"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:orientation="horizontal"
@@ -44,13 +44,13 @@
 
         <EditText
             android:id="@+id/et_search1"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
             android:layout_marginRight="5dp"
             android:background="@null"
             android:gravity="right|center"
             android:hint="想去哪?"
-            android:textSize="15dp"
+            android:textSize="12dp"
             android:singleLine="true"
             android:textColor="#82CCE1"
             android:textCursorDrawable="@drawable/edittextkeycolor" />
@@ -69,7 +69,8 @@
     </LinearLayout>
 
     <HorizontalScrollView
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="40dp"
+        android:scrollbars="none"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -80,27 +81,55 @@
 
             <ImageButton
                 android:id="@+id/recommend1"
-                android:layout_width="400dp"
-                android:layout_height="300dp"
+                android:layout_width="280dp"
+                android:layout_height="200dp"
                 android:background="#00000000"
                 android:scaleType="fitXY"
                 app:srcCompat="@drawable/recommend1" />
 
             <ImageButton
                 android:id="@+id/recommend2"
-                android:layout_width="350dp"
-                android:layout_height="250dp"
+                android:layout_width="280dp"
+                android:layout_height="200dp"
                 android:background="#00000000"
-                android:scaleType="fitStart"
+                android:scaleType="fitXY"
                 app:srcCompat="@drawable/recommend2" />
 
             <ImageButton
                 android:id="@+id/recommend3"
-                android:layout_width="350dp"
-                android:layout_height="250dp"
+                android:layout_width="280dp"
+                android:layout_height="200dp"
                 android:background="#00000000"
-                android:scaleType="fitStart"
+                android:scaleType="fitXY"
                 app:srcCompat="@drawable/recommend3" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/limited1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#00000000"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/time1" />
+
+            <ImageButton
+                android:id="@+id/limited2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="#00000000"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/time2" />
         </LinearLayout>
     </HorizontalScrollView>
 

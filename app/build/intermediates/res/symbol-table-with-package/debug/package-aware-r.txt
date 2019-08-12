@@ -714,6 +714,7 @@ drawable add
 drawable addphoto
 drawable background
 drawable background_of_text_up_ian
+drawable backgroundmain
 drawable beitouimage
 drawable beitouimage1
 drawable beitouimage2
@@ -842,6 +843,9 @@ drawable plus
 drawable pressfollow_shape
 drawable question
 drawable rank
+drawable recommend1
+drawable recommend2
+drawable recommend3
 drawable rectangle
 drawable rectangle73
 drawable rectangle74
@@ -867,6 +871,8 @@ drawable taipeiimage2
 drawable tamsui1
 drawable tamsui2
 drawable tamsui3
+drawable time1
+drawable time2
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable treasure
@@ -970,7 +976,6 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
-id collect
 id collect1
 id collect2
 id collect3
@@ -1052,6 +1057,8 @@ id layout_chat
 id layout_default
 id left
 id light
+id limited1
+id limited2
 id line1
 id line3
 id linearLayout
@@ -1119,6 +1126,9 @@ id progress_horizontal
 id radio
 id rank
 id ratingBar
+id recommend1
+id recommend2
+id recommend3
 id record
 id rectangle
 id right
@@ -1233,6 +1243,7 @@ id text5
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textView
+id textView2
 id time
 id title
 id titleDividerNoCustom
@@ -1337,6 +1348,7 @@ layout activity_main2
 layout activity_memory_write
 layout activity_mrtstation
 layout activity_post_write
+layout activity_recommend
 layout activity_search_map
 layout activity_search_view
 layout activity_taipei101
@@ -1347,6 +1359,7 @@ layout crop_image_view
 layout fragment_beitou
 layout fragment_emptymemory
 layout fragment_map
+layout fragment_map2
 layout fragment_recommend
 layout fragment_section1
 layout fragment_section2

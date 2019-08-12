@@ -84,6 +84,12 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     ImageButton dcardsearch;
     ImageButton pen;
 
+    ImageButton recommend1;
+    ImageButton recommend2;
+    ImageButton recommend3;
+    ImageButton limited1;
+    ImageButton limited2;
+
     EditText search_et;
     ImageButton search_bt;
     EditText search_et1;
@@ -181,9 +187,22 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         maintitle=(TextView)v1.findViewById(R.id.MainTitle);
         maintitle.setText(username+" ! 你好");
         maintitle2=(TextView)v1.findViewById(R.id.MainTitle2);
-        //Date d = new Date();
-        //CharSequence s  = DateFormat.format("yyyy-MM-dd", d.getTime());
         maintitle2.setText("你現在位於 國立臺灣大學綜合體育館");
+        recommend1=v1.findViewById(R.id.recommend1);
+        recommend1.setOnClickListener(this);
+        recommend1.setOnTouchListener(touchlistener);
+        recommend2=v1.findViewById(R.id.recommend2);
+        recommend2.setOnClickListener(this);
+        recommend2.setOnTouchListener(touchlistener);
+        recommend3=v1.findViewById(R.id.recommend3);
+        recommend3.setOnClickListener(this);
+        recommend3.setOnTouchListener(touchlistener);
+        limited1=v1.findViewById(R.id.limited1);
+        limited1.setOnClickListener(this);
+        limited1.setOnTouchListener(touchlistener);
+        limited2=v1.findViewById(R.id.limited2);
+        limited2.setOnClickListener(this);
+        limited2.setOnTouchListener(touchlistener);
 
         search_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -284,13 +303,15 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
 
             if (mSpeed >= SPEED_SHRESHOLD) {
                 // 達到搖一搖甩動後要做的事情
-                Toast.makeText(getApplicationContext(), "shake", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "shake", Toast.LENGTH_SHORT).show();
                 Intent GiveRecommendationIntent = new Intent();
                 GiveRecommendationIntent.setClass(Main2Activity.this, TamsuiActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("username", username);
+                GiveRecommendationIntent.putExtras(bundle);
                 startActivity(GiveRecommendationIntent);
             }
             else{
-
             }
         }
 
@@ -398,7 +419,14 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 penIntent.putExtras(bundlepen);
                 startActivity(penIntent);
                 break;
-
+            case R.id.recommend2:
+                Intent recommendIntent = new Intent(Main2Activity.this, RecommendActivity.class);
+                recommendIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Bundle recommendbundle=new Bundle();
+                recommendbundle.putString("Username",username);
+                recommendIntent.putExtras(recommendbundle);
+                startActivity(recommendIntent);
+                break;
         }
 
     }
@@ -439,6 +467,21 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                     case R.id.button_pen:
                         pen.startAnimation(animation);
                         break;
+                    case R.id.recommend1:
+                        recommend1.startAnimation(animation);
+                        break;
+                    case R.id.recommend2:
+                        recommend2.startAnimation(animation);
+                        break;
+                    case R.id.recommend3:
+                        recommend3.startAnimation(animation);
+                        break;
+                    case R.id.limited1:
+                        limited1.startAnimation(animation);
+                        break;
+                    case R.id.limited2:
+                        limited2.startAnimation(animation);
+                        break;
                 }
 
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -474,7 +517,21 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                     case R.id.button_pen:
                         pen.startAnimation(animation);
                         break;
-
+                    case R.id.recommend1:
+                        recommend1.startAnimation(animation);
+                        break;
+                    case R.id.recommend2:
+                        recommend2.startAnimation(animation);
+                        break;
+                    case R.id.recommend3:
+                        recommend3.startAnimation(animation);
+                        break;
+                    case R.id.limited1:
+                        limited1.startAnimation(animation);
+                        break;
+                    case R.id.limited2:
+                        limited2.startAnimation(animation);
+                        break;
                 }
 
             }
