@@ -369,16 +369,15 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         int k=0;
-
         // Add a marker in Sydney and move the camera
         //LatLng sydney = new LatLng(-34, 151);
         //mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         for (int i=0;i<count;i++){
-            if (found2[i]==true) {
-                LatLng nowPos = new LatLng(Double.parseDouble(templatitude[i]), Double.parseDouble(templongitude[i]));
-                mMap.addMarker(new MarkerOptions().position(nowPos).title(tempname[i]));
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos, 15));
+            if (found2[i]==true&&k<3) {
+                Pos[k]= new LatLng(Double.parseDouble(templatitude[i]), Double.parseDouble(templongitude[i]));
+                mMap.addMarker(new MarkerOptions().position(Pos[k]).title(tempname[i]));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Pos[k], 15));
                 if (k==0) {
                     placetext1.setText(tempname[i]);
                     k++;
@@ -625,7 +624,15 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
                 Intent personIntent = new Intent(SearchMapActivity.this, DcardPersonActivity.class);
                 personIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(personIntent);
-
+            case R.id.placegroup1:
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Pos[0], 15));
+                break;
+            case R.id.placegroup2:
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Pos[1], 15));
+                break;
+            case R.id.placegroup3:
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Pos[2], 15));
+                break;
         }
     }
 
