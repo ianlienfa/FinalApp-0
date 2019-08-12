@@ -790,6 +790,7 @@ drawable maintriplog
 drawable maintrippei
 drawable map
 drawable map2
+drawable mapbackground
 drawable mapkutin
 drawable memoryboard
 drawable memorywrite
@@ -839,6 +840,9 @@ drawable pic4
 drawable picture
 drawable pictureicon
 drawable place
+drawable place1
+drawable place2
+drawable place3
 drawable plus
 drawable pressfollow_shape
 drawable question
@@ -1114,7 +1118,16 @@ id personintro
 id personname
 id pictureimage
 id place
+id place1
+id place2
+id place3
 id place_name1_vis
+id placegroup1
+id placegroup2
+id placegroup3
+id placetext1
+id placetext2
+id placetext3
 id plus1
 id plus2
 id plus3

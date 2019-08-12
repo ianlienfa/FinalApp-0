@@ -136,7 +136,17 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
     double latitude;
     int count;
     boolean found2[]=new boolean[5];
+    boolean recommend;
     String username;
+
+    LinearLayout place1;
+    LinearLayout place2;
+    LinearLayout place3;
+    TextView placetext1;
+    TextView placetext2;
+    TextView placetext3;
+
+    LatLng Pos[]=new LatLng[3];
 
 
     //ian's new things starts from here
@@ -204,11 +214,15 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
         username=bundle.getString("username");
         templongitude=bundle.getStringArray("Longitude");
         templatitude=bundle.getStringArray("Latitude");
+        tempname=bundle.getStringArray("Name");
         count=bundle.getInt("Count");
-        longitude=bundle.getDouble("MRTLongitude");
-        latitude=bundle.getDouble("MRTLatitude");
-        MRTname=bundle.getString("MRTName");
         found2=bundle.getBooleanArray("Found");
+        recommend=bundle.getBoolean("Recommend");
+        if (!recommend){
+            longitude=bundle.getDouble("MRTLongitude");
+            latitude=bundle.getDouble("MRTLatitude");
+            MRTname=bundle.getString("MRTName");
+        }
 
         mTable = new Table("http://172.20.10.7:8000/api", "chatroom", "Secondteam", "secondteam12345");
         mTable2 = new Table("http://172.20.10.7:8000/api", "landmark","Secondteam", "secondteam12345");
@@ -268,6 +282,20 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
         person4 = (ImageButton) v3.findViewById(R.id.button_person4);
         person4.setOnClickListener(this);
         person4.setOnTouchListener(touchlistener);
+
+        //map
+        place1=v2.findViewById(R.id.placegroup1);
+        place1.setOnClickListener(this);
+        place1.setOnTouchListener(touchlistener);
+        place2=v2.findViewById(R.id.placegroup2);
+        place2.setOnClickListener(this);
+        place2.setOnTouchListener(touchlistener);
+        place3=v2.findViewById(R.id.placegroup3);
+        place3.setOnClickListener(this);
+        place3.setOnTouchListener(touchlistener);
+        placetext1=v2.findViewById(R.id.placetext1);
+        placetext2=v2.findViewById(R.id.placetext2);
+        placetext3=v2.findViewById(R.id.placetext3);
 
         //ian's new thing starts from here
         first_nfc_alert_vis  = v1.findViewById(R.id.first_nfc_alert_vis);
@@ -340,6 +368,7 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        int k=0;
 
         // Add a marker in Sydney and move the camera
         //LatLng sydney = new LatLng(-34, 151);
@@ -349,11 +378,26 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
             if (found2[i]==true) {
                 LatLng nowPos = new LatLng(Double.parseDouble(templatitude[i]), Double.parseDouble(templongitude[i]));
                 mMap.addMarker(new MarkerOptions().position(nowPos).title(tempname[i]));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos, 15));
+                if (k==0) {
+                    placetext1.setText(tempname[i]);
+                    k++;
+                }
+                else if (k==1){
+                    placetext2.setText(tempname[i]);
+                    k++;
+                }
+                else if (k==2){
+                    placetext3.setText(tempname[i]);
+                    k++;
+                }
             }
         }
-        LatLng nowPos1 = new LatLng(latitude, longitude);
-        mMap.addMarker(new MarkerOptions().position(nowPos1).title(MRTname));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos1, 15));
+        if (!recommend) {
+            LatLng nowPos1 = new LatLng(latitude, longitude);
+            mMap.addMarker(new MarkerOptions().position(nowPos1).title(MRTname));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos1, 15));
+        }
     }
 
     private class MyLocationListener implements LocationListener {
@@ -427,6 +471,15 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
                     case R.id.button_person4:
                         person4.startAnimation(animation);
                         break;
+                    case R.id.placegroup1:
+                        place1.startAnimation(animation);
+                        break;
+                    case R.id.placegroup2:
+                        place2.startAnimation(animation);
+                        break;
+                    case R.id.placegroup3:
+                        place3.startAnimation(animation);
+                        break;
                 }
 
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -476,6 +529,15 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
                         break;
                     case R.id.button_person4:
                         person4.startAnimation(animation);
+                        break;
+                    case R.id.placegroup1:
+                        place1.startAnimation(animation);
+                        break;
+                    case R.id.placegroup2:
+                        place2.startAnimation(animation);
+                        break;
+                    case R.id.placegroup3:
+                        place3.startAnimation(animation);
                         break;
                 }
 

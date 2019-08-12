@@ -910,6 +910,7 @@ public class MRTStationActivity extends AppCompatActivity implements OnMapReadyC
                 bundle2.putDouble("MRTLongitude",longitude);
                 bundle2.putDouble("MRTLatitude",latitude);
                 bundle2.putBooleanArray("Found",found);
+                bundle2.putBoolean("Recommend",false);
                 SearchMapIntent.putExtras(bundle2);
                 startActivity(SearchMapIntent);
                 break;

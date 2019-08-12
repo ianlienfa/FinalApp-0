@@ -873,6 +873,7 @@ public class RecommendActivity extends AppCompatActivity implements OnMapReadyCa
                 bundle2.putDouble("MRTLongitude",longitude);
                 bundle2.putDouble("MRTLatitude",latitude);
                 bundle2.putBooleanArray("Found",found);
+                bundle2.putBoolean("Recommend",true);
                 SearchMapIntent.putExtras(bundle2);
                 startActivity(SearchMapIntent);
                 break;
