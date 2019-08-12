@@ -211,7 +211,7 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
         found2=bundle.getBooleanArray("Found");
 
         mTable = new Table("http://172.20.10.7:8000/api", "chatroom", "Secondteam", "secondteam12345");
-        mTable2 = new Table("http://172.20.10.7:8000/api", "landmark", "Secondteam", "secondteam12345");
+        mTable2 = new Table("http://172.20.10.7:8000/api", "landmark","Secondteam", "secondteam12345");
 
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
         if (nfcAdapter == null) {

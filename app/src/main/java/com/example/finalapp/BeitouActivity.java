@@ -9,6 +9,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,7 +32,6 @@ public class BeitouActivity extends AppCompatActivity {
     TextView eptitle;
     TextView eptext;
     boolean write;
-    Table mTable;
     String location;
     String text;
     String picture[]=new String [3];
@@ -40,101 +40,12 @@ public class BeitouActivity extends AppCompatActivity {
     ImageView image2;
     ImageView image3;
     ImageView stamp;
-
-    private Runnable r1 = new Runnable() {
-        public void run() {
-            try {
-                Tuple tuple_get[] = mTable.get();
-                len=tuple_get.length-1;
-                location=tuple_get[len].get("Location");
-                text=tuple_get[len].get("Text");
-                picture[0]=tuple_get[len].get("Picture1");
-                picture[1]=tuple_get[len].get("Picture2");
-                picture[2]=tuple_get[len].get("Picture3");
-                Message msg = new Message();
-                msg.what = 1;
-                mHandler.sendMessage(msg);
-            } catch (IOException e) {
-                Log.e("Net", "Fail to get");
-            }
-        }
-    };
-
-
-    private Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case 1:
-                    eptitle.setText(location);
-                    eptext.setText(text);
-                    if (location.equals("台北車站")){
-                        stamp.setImageResource(R.drawable.p1);
-                    }
-                    else if (location.equals("北投站")){
-                        stamp.setImageResource(R.drawable.p2);
-                    }
-                    else{
-                        stamp.setImageResource(R.drawable.p3);
-                    }
-                    new AsyncTask<String, Void, Bitmap>()
-                    {
-                        @Override
-                        protected Bitmap doInBackground(String... params)
-                        {
-                            String url = params[0];
-                            return getBitmapFromURL(url);
-                        }
-
-                        @Override
-                        protected void onPostExecute(Bitmap result)
-                        {
-                            image1.setImageBitmap (result);
-                            super.onPostExecute(result);
-                        }
-                    }.execute(picture[0]);
-                    new AsyncTask<String, Void, Bitmap>()
-                    {
-                        @Override
-                        protected Bitmap doInBackground(String... params)
-                        {
-                            String url = params[0];
-                            return getBitmapFromURL(url);
-                        }
-
-                        @Override
-                        protected void onPostExecute(Bitmap result)
-                        {
-                            image2.setImageBitmap (result);
-                            super.onPostExecute(result);
-                        }
-                    }.execute(picture[1]);
-                    new AsyncTask<String, Void, Bitmap>()
-                    {
-                        @Override
-                        protected Bitmap doInBackground(String... params)
-                        {
-                            String url = params[0];
-                            return getBitmapFromURL(url);
-                        }
-
-                        @Override
-                        protected void onPostExecute(Bitmap result)
-                        {
-                            image3.setImageBitmap (result);
-                            super.onPostExecute(result);
-                        }
-                    }.execute(picture[2]);
-                    break;
-            }
-        }
-    };
+    Bitmap bitmap[]=new Bitmap[3];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beitou);
-        mTable = new Table("http://172.20.10.7:8000/api", "memory", "Secondteam", "secondteam12345");
         pager = (ViewPager) findViewById(R.id.pager);
 
         LayoutInflater li = getLayoutInflater().from(this);
@@ -157,14 +68,42 @@ public class BeitouActivity extends AppCompatActivity {
             image2=v3.findViewById(R.id.emptyimage2);
             image3=v3.findViewById(R.id.emptyimage3);
             stamp=v3.findViewById(R.id.emptyimage4);
+            eptitle.setText(bundle.getString("Location"));
+            eptext.setText(bundle.getString("Text"));
+            /*picture=bundle.getStringArray("Bitmap");
+            for (int i=0;i<3;i++){
+                bitmap[i]=StringToBitMap(picture[i]);
+            }
+            image1.setImageBitmap(bitmap[0]);
+            image2.setImageBitmap(bitmap[1]);
+            image3.setImageBitmap(bitmap[2]);*/
+            if (eptitle.getText().toString().equals("台北車站")){
+                stamp.setImageResource(R.drawable.p1);
+            }
+            else if (eptitle.getText().toString().equals("北投站")){
+                stamp.setImageResource(R.drawable.p2);
+            }
+            else{
+                stamp.setImageResource(R.drawable.p3);
+            }
             pager.setAdapter(new myViewPagerAdapter(pagerList));
             pager.setCurrentItem(2);
-            Thread t1=new Thread(r1);
-            t1.start();
         }
         else {
             pager.setAdapter(new myViewPagerAdapter(pagerList));
             pager.setCurrentItem(0);
+        }
+    }
+
+    public Bitmap StringToBitMap(String encodedString) {
+        try {
+            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0,
+                    encodeByte.length);
+            return bitmap;
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
         }
     }
 

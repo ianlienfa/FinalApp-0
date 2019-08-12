@@ -18,6 +18,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -32,6 +33,7 @@ import android.widget.TextView;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -40,7 +42,6 @@ import nctu.fintech.appmate.Table;
 import nctu.fintech.appmate.Tuple;
 
 public class MemoryWriteActivity extends AppCompatActivity implements View.OnClickListener {
-    Table mTable;
     String location;
     String temptext;
     EditText text;
@@ -51,45 +52,14 @@ public class MemoryWriteActivity extends AppCompatActivity implements View.OnCli
     TextView title;
     Uri uri;
     int count=0;
-    Bitmap bitmap[]={null,null,null};
-    boolean photofound[]=new boolean[3];
+    String bitmap[]={null,null,null};
     String username;
-    String filename="http://172.20.10.7:8000/media";
-    Tuple tuple_add = new Tuple();
-
-    private Runnable r1 = new Runnable(){
-        public void run()
-        {
-            tuple_add.put("Username",username);
-            tuple_add.put("Location",location);
-            tuple_add.put("Text",temptext);
-            tuple_add.put("Theme","北投一日遊");
-            if (photofound[0]){
-                tuple_add.put("Picture1",filename,bitmap[0]);
-            }
-            if (photofound[1]){
-                tuple_add.put("Picture2",filename,bitmap[1]);
-            }
-            if (photofound[2]){
-                tuple_add.put("Picture3",filename,bitmap[2]);
-            }
-            try {
-                mTable.add(tuple_add);
-            }catch (IOException e) {
-                Log.e("Error", "Fail to put");
-            }
-        }
-    };
-
+    Bitmap tempbitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory_write);
-        for (int i=0;i<3;i++){
-            photofound[i]=false;
-        }
-        mTable = new Table("http://172.20.10.7:8000/api", "memory", "Secondteam", "secondteam12345");
         Bundle bundle=getIntent().getExtras();
         location=bundle.getString("Location");
         username=bundle.getString("Username");
@@ -159,35 +129,35 @@ public class MemoryWriteActivity extends AppCompatActivity implements View.OnCli
                     photo.setImageURI(imageUri);
                     if (imageUri != null) {
                         try {
-                            bitmap[0] = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+                            tempbitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+                            bitmap[0]=BitMapToString(tempbitmap);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
-                    photofound[0]=true;
                 }
                 else if (count==2){
                     Uri imageUri2 = result.getUri();
                     photo2.setImageURI(imageUri2);
                     if (imageUri2 != null) {
                         try {
-                            bitmap[1] = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri2);
+                            tempbitmap= MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri2);
+                            bitmap[1]=BitMapToString(tempbitmap);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
-                    photofound[1]=true;
                 }else if (count==3){
                     Uri imageUri3 = result.getUri();
                     photo3.setImageURI(imageUri3);
                     if (imageUri3 != null) {
                         try {
-                            bitmap[2] = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri3);
+                            tempbitmap= MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri3);
+                            bitmap[2]=BitMapToString(tempbitmap);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
-                    photofound[2]=true;
                 }
             }
             else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
@@ -242,21 +212,20 @@ public class MemoryWriteActivity extends AppCompatActivity implements View.OnCli
                 Intent intent=new Intent(MemoryWriteActivity.this,BeitouActivity.class);
                 Bundle bundle2 = new Bundle();
                 bundle2.putBoolean("Write",true);
+                bundle2.putString("Location",location);
+                bundle2.putString("Text",temptext);
+                bundle2.putStringArray("Bitmap",bitmap);
                 intent.putExtras(bundle2);
-                Thread t1=new Thread(r1);
-                t1.start();
-                delay(3000);
                 startActivity(intent);
                 break;
         }
     }
 
-    private void delay(int ms){
-        try {
-            Thread.currentThread();
-            Thread.sleep(ms);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public String BitMapToString(Bitmap bitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        byte[] b = baos.toByteArray();
+        String temp = Base64.encodeToString(b, Base64.DEFAULT);
+        return temp;
     }
 }

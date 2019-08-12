@@ -50,7 +50,7 @@ public class PostWriteActivity extends AppCompatActivity implements View.OnClick
     Uri uri;
     Bitmap bitmap[]=new Bitmap[3];
     boolean photofound[]={false,false,false};
-    String filename="http://172.20.10.7:8000/media";
+    String filename="http://192.168.1.1:8000/media";
 
     private Runnable r1 = new Runnable(){
         public void run()
