@@ -483,8 +483,8 @@ public class MRTStationActivity extends AppCompatActivity implements OnMapReadyC
         keyname = bundle.getString("key");
         username=bundle.getString("username");
         pager = (ViewPager) findViewById(R.id.pager);
-        mTable2 = new Table("http://172.20.10.7:8000/api", "landmark", "Secondteam", "secondteam12345");
-        mTable3 = new Table("http://172.20.10.7:8000/api", "mrtlocation", "Secondteam", "secondteam12345");
+        mTable2 = new Table("http://192.168.1.178:8000/api", "landmark", "Secondteam", "secondteam12345");
+        mTable3 = new Table("http://192.168.1.178:8000/api", "mrtlocation", "Secondteam", "secondteam12345");
         LayoutInflater li = getLayoutInflater().from(this);
         View v2 = li.inflate(R.layout.fragment_map, null);
         View v4 = li.inflate(R.layout.fragment_recommend, null);
