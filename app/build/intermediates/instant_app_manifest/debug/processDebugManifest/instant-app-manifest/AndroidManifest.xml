@@ -36,8 +36,9 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.finalapp.RecommendActivity" />
+        <activity android:name="com.example.finalapp.EmptyPostActivity" />
         <activity android:name="com.example.finalapp.TamsuiActivity" />
         <activity android:name="com.example.finalapp.SearchViewActivity" />
         <activity android:name="com.example.finalapp.PostWriteActivity" />

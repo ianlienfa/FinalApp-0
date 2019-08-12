@@ -2,6 +2,7 @@ package com.example.finalapp;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
@@ -40,7 +41,7 @@ public class BeitouActivity extends AppCompatActivity {
     ImageView image2;
     ImageView image3;
     ImageView stamp;
-    Bitmap bitmap[]=new Bitmap[3];
+    Uri uri[]=new Uri[3];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,13 +71,15 @@ public class BeitouActivity extends AppCompatActivity {
             stamp=v3.findViewById(R.id.emptyimage4);
             eptitle.setText(bundle.getString("Location"));
             eptext.setText(bundle.getString("Text"));
-            /*picture=bundle.getStringArray("Bitmap");
+            picture=bundle.getStringArray("Bitmap");
             for (int i=0;i<3;i++){
-                bitmap[i]=StringToBitMap(picture[i]);
+                if (picture[i]!=null) {
+                    uri[i] = Uri.parse(picture[i]);
+                }
             }
-            image1.setImageBitmap(bitmap[0]);
-            image2.setImageBitmap(bitmap[1]);
-            image3.setImageBitmap(bitmap[2]);*/
+            image1.setImageURI(uri[0]);
+            image2.setImageURI(uri[1]);
+            image3.setImageURI(uri[2]);
             if (eptitle.getText().toString().equals("台北車站")){
                 stamp.setImageResource(R.drawable.p1);
             }
@@ -95,17 +98,6 @@ public class BeitouActivity extends AppCompatActivity {
         }
     }
 
-    public Bitmap StringToBitMap(String encodedString) {
-        try {
-            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
-            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0,
-                    encodeByte.length);
-            return bitmap;
-        } catch (Exception e) {
-            e.getMessage();
-            return null;
-        }
-    }
 
     public class myViewPagerAdapter extends PagerAdapter {
         private ArrayList<View> mListViews;
@@ -137,23 +129,4 @@ public class BeitouActivity extends AppCompatActivity {
         }
     }
 
-    //讀取網路圖片，型態為Bitmap
-    private static Bitmap getBitmapFromURL(String imageUrl)
-    {
-        try
-        {
-            URL url = new URL(imageUrl);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoInput(true);
-            connection.connect();
-            InputStream input = connection.getInputStream();
-            Bitmap bitmap = BitmapFactory.decodeStream(input);
-            return bitmap;
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-            return null;
-        }
-    }
 }

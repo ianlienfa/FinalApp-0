@@ -54,7 +54,6 @@ public class MemoryWriteActivity extends AppCompatActivity implements View.OnCli
     int count=0;
     String bitmap[]={null,null,null};
     String username;
-    Bitmap tempbitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,37 +126,16 @@ public class MemoryWriteActivity extends AppCompatActivity implements View.OnCli
                 if (count == 1) {
                     Uri imageUri = result.getUri();
                     photo.setImageURI(imageUri);
-                    if (imageUri != null) {
-                        try {
-                            tempbitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
-                            bitmap[0]=BitMapToString(tempbitmap);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
+                    bitmap[0]=imageUri.toString();
                 }
                 else if (count==2){
                     Uri imageUri2 = result.getUri();
                     photo2.setImageURI(imageUri2);
-                    if (imageUri2 != null) {
-                        try {
-                            tempbitmap= MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri2);
-                            bitmap[1]=BitMapToString(tempbitmap);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
+                    bitmap[1]=imageUri2.toString();
                 }else if (count==3){
                     Uri imageUri3 = result.getUri();
                     photo3.setImageURI(imageUri3);
-                    if (imageUri3 != null) {
-                        try {
-                            tempbitmap= MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri3);
-                            bitmap[2]=BitMapToString(tempbitmap);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
+                    bitmap[2]=imageUri3.toString();
                 }
             }
             else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
@@ -219,13 +197,5 @@ public class MemoryWriteActivity extends AppCompatActivity implements View.OnCli
                 startActivity(intent);
                 break;
         }
-    }
-
-    public String BitMapToString(Bitmap bitmap) {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-        byte[] b = baos.toByteArray();
-        String temp = Base64.encodeToString(b, Base64.DEFAULT);
-        return temp;
     }
 }

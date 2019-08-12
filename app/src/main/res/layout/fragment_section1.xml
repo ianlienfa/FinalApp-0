@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/mainbackground">
+    android:background="@drawable/backgroundmain">
 
 
     <!-- TODO: Update blank fragment layout -->
@@ -27,16 +27,6 @@
         android:text=""
         android:textColor="#ffffffff"
         android:textSize="16dp" />
-
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="300dp"
-        android:layout_height="350dp"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        tools:context=".MapsActivity" />
 
     <LinearLayout
         android:id="@+id/layout_default"
@@ -78,17 +68,41 @@
 
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/collect"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="bottom"
-        android:layout_marginTop="45dp"
-        android:layout_marginLeft="-38dp"
-        android:layout_marginBottom="-38dp"
-        android:background="#00000000"
-        android:scaleType="fitXY"
-        android:src="@drawable/collect" />
+    <HorizontalScrollView
+        android:layout_marginTop="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/recommend1"
+                android:layout_width="400dp"
+                android:layout_height="300dp"
+                android:background="#00000000"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/recommend1" />
+
+            <ImageButton
+                android:id="@+id/recommend2"
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:background="#00000000"
+                android:scaleType="fitStart"
+                app:srcCompat="@drawable/recommend2" />
+
+            <ImageButton
+                android:id="@+id/recommend3"
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:background="#00000000"
+                android:scaleType="fitStart"
+                app:srcCompat="@drawable/recommend3" />
+        </LinearLayout>
+    </HorizontalScrollView>
 
 </LinearLayout>
 

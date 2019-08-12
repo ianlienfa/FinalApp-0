@@ -12,6 +12,10 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -57,15 +61,9 @@ import java.util.TimerTask;
 import nctu.fintech.appmate.Table;
 import nctu.fintech.appmate.Tuple;
 
-public class Main2Activity extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener{
+public class Main2Activity extends AppCompatActivity implements View.OnClickListener{
     ViewPager pager;
     ArrayList<View> pagerList;
-
-    private GoogleMap mMap;
-    private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1;
-    private static final long MINIMUM_TIME_BETWEEN_UPDATES = 1000;
-    protected LocationManager locationManager;
-    //protected MyLocationListener locationListener;
 
     private BluetoothAdapter mBluetoothAdapter;
     private List<String> bluetoothdeviceslist = new ArrayList<String>();
@@ -83,9 +81,9 @@ public class Main2Activity extends AppCompatActivity implements OnMapReadyCallba
     ImageButton EggText;
     ImageButton WaterText;
     ImageButton ChatText;
-    ImageButton collect;
     ImageButton dcardsearch;
     ImageButton pen;
+
     EditText search_et;
     ImageButton search_bt;
     EditText search_et1;
@@ -94,6 +92,21 @@ public class Main2Activity extends AppCompatActivity implements OnMapReadyCallba
     TextView maintitle;
     TextView maintitle2;
     String currentlocation;
+
+
+    //shake-ian
+    private SensorManager mSensorManager;   //體感(Sensor)使用管理
+    private Sensor mSensor;                 //體感(Sensor)類別
+    private float mLastX;                    //x軸體感(Sensor)偏移
+    private float mLastY;                    //y軸體感(Sensor)偏移
+    private float mLastZ;                    //z軸體感(Sensor)偏移
+    private double mSpeed;                 //甩動力道數度
+    private long mLastUpdateTime;           //觸發時間
+    //甩動力道數度設定值 (數值越大需甩動越大力，數值越小輕輕甩動即會觸發)
+    private static final int SPEED_SHRESHOLD = 3000;
+    //觸發間隔時間
+    private static final int UPTATE_INTERVAL_TIME = 70;
+
 
     private Runnable r2 = new Runnable() {
         public void run() {
@@ -160,20 +173,6 @@ public class Main2Activity extends AppCompatActivity implements OnMapReadyCallba
         pager.setAdapter(new myViewPagerAdapter(pagerList));
         pager.setCurrentItem(0);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) this.getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
-
-        /*locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        locationListener = new MyLocationListener();
-
-        locationManager.requestLocationUpdates(
-                LocationManager.NETWORK_PROVIDER, // NETWORK_PROVIDER、PASSIVE_PROVIDER
-                MINIMUM_TIME_BETWEEN_UPDATES, // 每隔多久update一次(ms)
-                MINIMUM_DISTANCE_CHANGE_FOR_UPDATES, // 被定位物件每移動幾公尺update一次(m)
-                (LocationListener) locationListener
-        );*/
-
 
         //section1
         search_bt = (ImageButton) v1.findViewById(R.id.iv_default1);
@@ -185,8 +184,6 @@ public class Main2Activity extends AppCompatActivity implements OnMapReadyCallba
         //Date d = new Date();
         //CharSequence s  = DateFormat.format("yyyy-MM-dd", d.getTime());
         maintitle2.setText("你現在位於 國立臺灣大學綜合體育館");
-        collect = (ImageButton) v1.findViewById(R.id.collect);
-        collect.setOnTouchListener(touchlistener);
 
         search_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -210,18 +207,6 @@ public class Main2Activity extends AppCompatActivity implements OnMapReadyCallba
                     mBluetoothAdapter.cancelDiscovery();
                     startActivity(searchmapIntent);
                 }
-            }
-        });
-
-        collect.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent collectionIntent = new Intent(Main2Activity.this, CollectionActivity.class);
-                collectionIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                Bundle bundle = new Bundle();
-                bundle.putString("name", username);
-                collectionIntent.putExtras(bundle);
-                startActivity(collectionIntent);
             }
         });
 
@@ -256,68 +241,72 @@ public class Main2Activity extends AppCompatActivity implements OnMapReadyCallba
         pen.setOnClickListener(this);
         pen.setOnTouchListener(touchlistener);
 
+
+        //shake-ian
+        mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
+        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mSensorManager.registerListener(SensorListener, mSensor,SensorManager.SENSOR_DELAY_GAME);
+
     }
+
+
+    private SensorEventListener SensorListener= new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent mSensorEvent) {
+
+            // 當前觸發時間
+            long mCurrentUpdateTime = System.currentTimeMillis();
+            // 觸發間隔時間 = 當前觸發時間 - 上次觸發時間
+            long mTimeInterval = mCurrentUpdateTime - mLastUpdateTime;
+            // 若觸發間隔時間< 70 則return;
+            if (mTimeInterval < UPTATE_INTERVAL_TIME)
+                return;
+
+            mLastUpdateTime = mCurrentUpdateTime;
+
+
+            // 取得xyz體感(Sensor)偏移
+            float x = mSensorEvent.values[0];
+            float y = mSensorEvent.values[1];
+            float z = mSensorEvent.values[2];
+            // 甩動偏移速度 = xyz體感(Sensor)偏移 - 上次xyz體感(Sensor)偏移
+            float mDeltaX = x - mLastX;
+            float mDeltaY = y - mLastY;
+            float mDeltaZ = z - mLastZ;
+            mLastX = x;
+            mLastY = y;
+            mLastZ = z;
+
+
+            // 體感(Sensor)甩動力道速度公式
+            mSpeed = Math.sqrt(mDeltaX * mDeltaX + mDeltaY * mDeltaY + mDeltaZ * mDeltaZ) / mTimeInterval * 10000;
+            // 若體感(Sensor)甩動速度大於等於甩動設定值則進入 (達到甩動力道及速度)
+
+            if (mSpeed >= SPEED_SHRESHOLD) {
+                // 達到搖一搖甩動後要做的事情
+                Toast.makeText(getApplicationContext(), "shake", Toast.LENGTH_SHORT).show();
+                Intent GiveRecommendationIntent = new Intent();
+                GiveRecommendationIntent.setClass(Main2Activity.this, TamsuiActivity.class);
+                startActivity(GiveRecommendationIntent);
+            }
+            else{
+
+            }
+        }
+
+
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+        }
+    };
 
     @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-
-        // Add a marker in Sydney and move the camera
-        //LatLng sydney = new LatLng(-34, 151);
-        //mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        LatLng nowPos=new LatLng(25.021952, 121.535371);
-        mMap.addMarker(new MarkerOptions().position(nowPos).title(username));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos, 15));
-        // 取得最後得知道provider資訊
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        //Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-
-// 得知GPS位置時，根據取得的經緯度標上 marker
-        /*if (location != null) {
-            //LatLng nowPos = new LatLng(location.getLatitude(), location.getLongitude());
-            LatLng nowPos=new LatLng(25.021952, 121.535371);
-            mMap.addMarker(new MarkerOptions().position(nowPos).title(username));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos, 15));
-        } else {
-            Toast.makeText(Main2Activity.this, "null", Toast.LENGTH_SHORT).show();
-        }*/
-
+    protected void onPause() {
+        super.onPause();
+        mSensorManager.unregisterListener(SensorListener);
     }
-
-    /*private class MyLocationListener implements LocationListener {
-
-        @Override
-        public void onLocationChanged(Location location) {
-            // 每次地點更新時，會呼叫 onLocationChanged()方法
-            LatLng nowPos = new LatLng(location.getLatitude(), location.getLongitude());
-            mMap.clear(); // 清理之前在地圖上 marker
-            mMap.addMarker(new MarkerOptions().position(nowPos).title(username));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos, 20));
-        }
-        @Override
-        public void onStatusChanged(String provider, int status, Bundle extras) {
-            Toast.makeText(Main2Activity.this, "Provider status changed",Toast.LENGTH_SHORT).show();
-        }
-        @Override
-        public void onProviderEnabled(String provider) {
-            Toast.makeText(Main2Activity.this, "Provider disabled by the user. GPS turned　off",Toast.LENGTH_SHORT).show();
-        }
-        @Override
-        public void onProviderDisabled(String provider) {
-            Toast.makeText(Main2Activity.this,"Provider enabled by the user. GPS turned on", Toast.LENGTH_SHORT).show();
-        }
-
-    }*/
 
 
     public class myViewPagerAdapter extends PagerAdapter {
@@ -444,9 +433,6 @@ public class Main2Activity extends AppCompatActivity implements OnMapReadyCallba
                     case R.id.iv_default1:
                         search_bt.startAnimation(animation);
                         break;
-                    case R.id.collect:
-                        collect.startAnimation(animation);
-                        break;
                     case R.id.button_person4:
                         person4.startAnimation(animation);
                         break;
@@ -481,9 +467,6 @@ public class Main2Activity extends AppCompatActivity implements OnMapReadyCallba
                         break;
                     case R.id.iv_default1:
                         search_bt.startAnimation(animation);
-                        break;
-                    case R.id.collect:
-                        collect.startAnimation(animation);
                         break;
                     case R.id.button_person4:
                         person4.startAnimation(animation);

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".EmptyPostActivity">
+
+    <ScrollView
+        android:id="@+id/scrollViewemptypost"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="50dp"
+            android:orientation="vertical"
+            android:scrollbarSize="0dp"
+            android:scrollbarStyle="outsideOverlay"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="33dp">
+
+            <ImageView
+                android:id="@+id/locationpic"
+                android:layout_width="match_parent"
+                android:layout_height="293dp"
+                android:layout_marginBottom="20dp"
+                android:scaleType="fitStart"
+                android:src="@drawable/zoo" />
+
+            <TextView
+                android:id="@+id/locationtitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:text="木柵動物園"
+                android:textColor="#1D1F22"
+                android:textSize="50dp"></TextView>
+
+            <ImageView
+                android:id="@+id/locationstar"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/star4" />
+
+
+            <TextView
+                android:id="@+id/locationtext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="今天去了木柵動物園\n有種重溫小時候的感覺!\n看到了很多不同的動物~每一隻都很可愛♥\n尤其是裡面的熊貓團團圓圓真的超級可愛的啦!!\n帶著小朋友一起去~他們都玩得很開心，一直吵著要跟小動物拍照，不想回家\n園區很大很好逛可以玩很久\n推薦大家來~" />
+
+            <ImageView
+                android:id="@+id/postimage1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/panda2"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/postimage2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/panda1" />
+
+            <ImageView
+                android:id="@+id/postimage3"
+                android:layout_width="match_parent"
+                android:layout_height="256dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:scaleType="fitStart"
+                android:src="@drawable/elephant" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

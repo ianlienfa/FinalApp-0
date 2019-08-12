@@ -33,7 +33,6 @@ import nctu.fintech.appmate.Table;
 import nctu.fintech.appmate.Tuple;
 
 public class PostWriteActivity extends AppCompatActivity implements View.OnClickListener {
-    Table mTable;
     EditText title;
     EditText text;
     ImageButton photo;
@@ -48,31 +47,8 @@ public class PostWriteActivity extends AppCompatActivity implements View.OnClick
     String comment;
     String Star;
     Uri uri;
-    Bitmap bitmap[]=new Bitmap[3];
-    boolean photofound[]={false,false,false};
-    String filename="http://192.168.1.1:8000/media";
+    String picture[]={null,null,null};
 
-    private Runnable r1 = new Runnable(){
-        public void run()
-        {
-            Tuple tuple_add = new Tuple();
-            tuple_add.put("Username",username);
-            tuple_add.put("Star",Star);
-            tuple_add.put("Landmark",landmark);
-            tuple_add.put("Comment",comment);
-            if (photofound[0])
-                tuple_add.put("Picture1",filename,bitmap[0]);
-            if (photofound[1])
-                tuple_add.put("Picture2",filename,bitmap[1]);
-            if (photofound[2])
-                tuple_add.put("Picture3",filename,bitmap[2]);
-            try {
-                mTable.add(tuple_add);
-            }catch (IOException e) {
-                Log.e("Error", "Fail to put");
-            }
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +56,6 @@ public class PostWriteActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_post_write);
         Bundle bundle=getIntent().getExtras();
         username=bundle.getString("Username");
-        mTable = new Table("http://172.20.10.7:8000/api", "comment", "Secondteam", "secondteam12345");
         star = (RatingBar) findViewById(R.id.ratingBar); // initiate a rating bar
         title=(EditText)findViewById(R.id.writetitle);
         text=(EditText)findViewById(R.id.writetext);
@@ -157,39 +132,18 @@ public class PostWriteActivity extends AppCompatActivity implements View.OnClick
                 Uri imageUri = result.getUri();
                 if (count==1) {
                     photo.setImageURI(imageUri);
-                    photofound[0]=true;
                     uri=imageUri;
-                    if (uri != null) {
-                        try {
-                            bitmap[0] = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
+                    picture[0]=imageUri.toString();
                 }
                 else if (count==2){
                     photo2.setImageURI(imageUri);
-                    photofound[1]=true;
                     uri=imageUri;
-                    if (uri != null) {
-                        try {
-                            bitmap[1] = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
+                    picture[1]=imageUri.toString();
                 }
                 else if (count==3){
                     photo3.setImageURI(imageUri);
-                    photofound[2]=true;
                     uri=imageUri;
-                    if (uri != null) {
-                        try {
-                            bitmap[2] = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
+                    picture[2]=imageUri.toString();
                 }
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 Exception error = result.getError();
@@ -243,14 +197,14 @@ public class PostWriteActivity extends AppCompatActivity implements View.OnClick
                 comment=text.getText().toString();
                 ratingNumber = (int)star.getRating(); // get rating number from a rating bar
                 Star=Integer.toString(ratingNumber);
-                star.setRating(0);
-                title.setText("");
-                text.setText("");
-                photo.setImageResource(R.drawable.addphoto);
-                photo2.setImageResource(R.drawable.addphoto);
-                photo3.setImageResource(R.drawable.addphoto);
-                Thread t1=new Thread(r1);
-                t1.start();
+                Intent intent=new Intent(PostWriteActivity.this,EmptyPostActivity.class);
+                Bundle bundle2 = new Bundle();
+                bundle2.putString("Location",landmark);
+                bundle2.putString("Text",comment);
+                bundle2.putString("Star",Star);
+                bundle2.putStringArray("Picture",picture);
+                intent.putExtras(bundle2);
+                startActivity(intent);
         }
     }
 }

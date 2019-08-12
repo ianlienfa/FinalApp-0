@@ -1063,6 +1063,10 @@ id listView2
 id listView3
 id list_item
 id list_star
+id locationpic
+id locationstar
+id locationtext
+id locationtitle
 id loginname
 id maintitle
 id map
@@ -1107,6 +1111,9 @@ id place_name1_vis
 id plus1
 id plus2
 id plus3
+id postimage1
+id postimage2
+id postimage3
 id progress_circular
 id progress_horizontal
 id radio
@@ -1127,6 +1134,7 @@ id scrollView2
 id scrollView3
 id scrollView4
 id scrollView_for_nfc1_vis
+id scrollViewemptypost
 id search_badge
 id search_bar
 id search_button
@@ -1321,6 +1329,7 @@ layout activity_chat_room
 layout activity_collection
 layout activity_dcard_person
 layout activity_dcard_post
+layout activity_empty_post
 layout activity_gong_guan
 layout activity_introduction
 layout activity_main

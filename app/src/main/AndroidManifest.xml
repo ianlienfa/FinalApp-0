@@ -21,7 +21,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TamsuiActivity"></activity>
+        <activity android:name=".RecommendActivity"></activity>
+        <activity android:name=".EmptyPostActivity" />
+        <activity android:name=".TamsuiActivity" />
         <activity android:name=".SearchViewActivity" />
         <activity android:name=".PostWriteActivity" />
         <activity android:name=".IntroductionActivity" />
