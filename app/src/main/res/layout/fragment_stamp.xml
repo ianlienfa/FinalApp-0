@@ -220,7 +220,6 @@
             app:layout_constraintStart_toStartOf="@id/place_name1_vis"
             app:layout_constraintTop_toTopOf="parent"
             />
-
     </ScrollView>
 
     <ImageView
@@ -258,5 +257,61 @@
         app:layout_constraintTop_toTopOf="@+id/first_nfc_alert_vis"
         android:visibility="invisible"
         />
+
+    <LinearLayout
+        android:id="@+id/unlockedgroup"
+        android:layout_width="wrap_content"
+        android:layout_height="450dp"
+        android:background="@drawable/whiteboard"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="30dp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/unlockedtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:textColor="#50626B"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:text="秘密行程已解鎖!" />
+
+        <TextView
+            android:id="@+id/unlockedtext"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textColor="#50626B"
+            android:textSize="16dp"
+            android:text="恭喜解開了秘密行程－
+腳踏車才能到達的仙境集匯!
+快去主畫面看看吧!
+" />
+
+        <ImageView
+            android:id="@+id/unlocked"
+            android:layout_width="180dp"
+            android:layout_height="106dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/unlockedimage" />
+
+        <ImageButton
+            android:id="@+id/knowbutton"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:background="#00000000"
+            android:scaleType="fitStart"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/knowbutton" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

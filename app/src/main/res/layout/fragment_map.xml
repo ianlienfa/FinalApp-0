@@ -29,7 +29,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
                 android:background="@drawable/tagshape"
-                android:text=""
+                android:text="親子"
                 android:textColor="#149AAD"
                 android:textSize="15dp" />
 
@@ -40,7 +40,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/tagshape"
-                android:text=""
+                android:text="在地阿嬤溫馨推薦"
                 android:textColor="#149AAD"
                 android:textSize="15dp" />
 
@@ -51,7 +51,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/tagshape"
-                android:text=""
+                android:text="文青必去"
                 android:textColor="#149AAD"
                 android:textSize="15dp" />
 
@@ -62,7 +62,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/tagshape"
-                android:text=""
+                android:text="休閒"
                 android:textColor="#149AAD"
                 android:textSize="15dp" />
 
@@ -73,7 +73,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/tagshape"
-                android:text=""
+                android:text="吃貨"
                 android:textColor="#149AAD"
                 android:textSize="15dp" />
 

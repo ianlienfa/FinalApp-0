@@ -12,6 +12,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -38,6 +39,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -107,6 +111,43 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
     String MRTname;
     String username;
     ImageView map;
+    LatLng nowPos1;
+    LatLng flowerPos;
+    LatLng pos2;
+    ImageButton place1;
+    ImageButton place2;
+    ImageButton place3;
+    TextView placetext1;
+    TextView placetext2;
+    TextView placetext3;
+
+    LinearLayout info;
+    LinearLayout infolinear2;
+    TextView currentlocation;
+    TextView goal;
+    TextView infoline1;
+    TextView infoline2;
+    TextView stop1;
+    TextView stop2;
+    TextView stopnum;
+    TextView stopnum2;
+    TextView exit;
+    ImageButton closebutton;
+
+    LinearLayout unlocked;
+    ImageButton knowbutton;
+    int collectcount=0;
+    ImageView mrtview;
+
+    //ian's new things starts from here
+    ImageView first_nfc_alert_vis;
+    //這個是故事黑黑的背景
+    TextView place_name1_vis;
+    ScrollView scrollView_for_nfc1_vis;
+    //兩個小男孩
+    ImageView cuteboy_nfc_vis1;
+    ImageView cuteboy_nfc_vis2;
+    Button story_closebutton1;
 
 
     private TimerTask task = new TimerTask() {
@@ -151,9 +192,6 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
         }
     };
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -183,23 +221,30 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
 
         LayoutInflater li = getLayoutInflater().from(this);
         View v1 = li.inflate(R.layout.fragment_stamp, null);
-        View v4=li.inflate(R.layout.tamsui_map,null);
-        View v2 = li.inflate(R.layout.fragment_map, null);
+        View v2 = li.inflate(R.layout.fragment_map2, null);
         View v3 = li.inflate(R.layout.fragment_section2, null);
         pagerList = new ArrayList<View>();
         pagerList.add(v1);
-        pagerList.add(v4);
         pagerList.add(v2);
         pagerList.add(v3);
 
         pager.setAdapter(new myViewPagerAdapter(pagerList));
         pager.setCurrentItem(1);
 
-        //MRTmap
-        map=(ImageView)v4.findViewById(R.id.waterMRT2);
-        map.setOnClickListener(this);
+        //ian's new thing starts from here
+        first_nfc_alert_vis  = v1.findViewById(R.id.first_nfc_alert_vis);
+        place_name1_vis = v1.findViewById(R.id.place_name1_vis);
+        scrollView_for_nfc1_vis = v1.findViewById(R.id.scrollView_for_nfc1_vis);
+        cuteboy_nfc_vis1 = v1.findViewById(R.id.cuteboy_nfc_vis1);
+        cuteboy_nfc_vis2 = v1.findViewById(R.id.cuteboy_nfc_vis2);
+        story_closebutton1 = v1.findViewById(R.id.story_closebutton1);
+        //stops here
 
         //stamp
+        unlocked=v1.findViewById(R.id.unlockedgroup);
+        knowbutton=v1.findViewById(R.id.knowbutton);
+        knowbutton.setOnClickListener(this);
+        knowbutton.setOnTouchListener(touchlistener);
         stamp1 = (ImageView) v1.findViewById(R.id.stamp1);
         stamp2 = (ImageView) v1.findViewById(R.id.stamp2);
         stamp3 = (ImageView) v1.findViewById(R.id.stamp3);
@@ -232,18 +277,36 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
         mapFragment.getMapAsync(this);
 
         //map
-        navigate=(ImageButton)v2.findViewById(R.id.navigate);
-        navigate.setVisibility(View.GONE);
-        maptag1=(Button)v2.findViewById(R.id.tag1);
-        maptag1.setVisibility(View.GONE);
-        maptag2=(Button)v2.findViewById(R.id.tag2);
-        maptag2.setVisibility(View.GONE);
-        maptag3=(Button)v2.findViewById(R.id.tag3);
-        maptag3.setVisibility(View.GONE);
-        maptag4=(Button)v2.findViewById(R.id.tag4);
-        maptag4.setVisibility(View.GONE);
-        maptag5=(Button)v2.findViewById(R.id.tag5);
-        maptag5.setVisibility(View.GONE);
+        place1=v2.findViewById(R.id.place1);
+        place1.setOnClickListener(this);
+        place1.setOnTouchListener(touchlistener);
+        place2=v2.findViewById(R.id.place2);
+        place2.setOnClickListener(this);
+        place2.setOnTouchListener(touchlistener);
+        place3=v2.findViewById(R.id.place3);
+        place3.setOnClickListener(this);
+        place3.setOnTouchListener(touchlistener);
+        placetext1=v2.findViewById(R.id.placetext1);
+        placetext2=v2.findViewById(R.id.placetext2);
+        placetext3=v2.findViewById(R.id.placetext3);
+        placetext1.setText("花博公園");
+        placetext2.setText("落雨松小徑");
+        placetext3.setText("淡水老街");
+        info=v2.findViewById(R.id.information);
+        currentlocation=v2.findViewById(R.id.currentlocation);
+        goal=v2.findViewById(R.id.goal);
+        infoline1=v2.findViewById(R.id.infoline1);
+        infoline2=v2.findViewById(R.id.infoline2);
+        stopnum=v2.findViewById(R.id.stopnum);
+        stopnum2=v2.findViewById(R.id.stopnum2);
+        stop1=v2.findViewById(R.id.stop1);
+        stop2=v2.findViewById(R.id.stop2);
+        infolinear2=v2.findViewById(R.id.infolinear2);
+        closebutton=v2.findViewById(R.id.infoclose_bt);
+        closebutton.setOnClickListener(this);
+        closebutton.setOnTouchListener(touchlistener);
+        mrtview=v2.findViewById(R.id.mrtview);
+        exit=v2.findViewById(R.id.infoexit);
 
         //section2
         Taipei101Text = (ImageButton) v3.findViewById(R.id.button_Taipei101);
@@ -292,15 +355,14 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
         //LatLng sydney = new LatLng(-34, 151);
         //mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        LatLng nowPos1 = new LatLng(25.167761, 121.445679);
-        LatLng flowerPos=new LatLng(25.071031, 121.524948);
-        LatLng pos2=new LatLng(25.137880, 121.486878);
+        nowPos1 = new LatLng(25.167761, 121.445679);
+        flowerPos=new LatLng(25.071031, 121.524948);
+        pos2=new LatLng(25.137880, 121.486878);
         mMap.addMarker(new MarkerOptions().position(flowerPos).title("花博公園"));
         mMap.addMarker(new MarkerOptions().position(pos2).title("落雨松小徑"));
         mMap.addMarker(new MarkerOptions().position(nowPos1).title("淡水老街"));
-        LatLng nowPos=new LatLng(25.021952, 121.535371);
-        mMap.addMarker(new MarkerOptions().position(nowPos).title(username));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos, 10));
+        mMap.addMarker(new MarkerOptions().position(flowerPos).title(username));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(flowerPos, 10));
     }
 
     ImageButton.OnTouchListener touchlistener = new ImageButton.OnTouchListener() {
@@ -354,6 +416,18 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
                     case R.id.button_person4:
                         person4.startAnimation(animation);
                         break;
+                    case R.id.place1:
+                        place1.startAnimation(animation);
+                        break;
+                    case R.id.place2:
+                        place2.startAnimation(animation);
+                        break;
+                    case R.id.place3:
+                        place3.startAnimation(animation);
+                        break;
+                    case R.id.knowbutton:
+                        knowbutton.startAnimation(animation);
+                        break;
                 }
 
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -404,6 +478,18 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
                     case R.id.button_person4:
                         person4.startAnimation(animation);
                         break;
+                    case R.id.place1:
+                        place1.startAnimation(animation);
+                        break;
+                    case R.id.place2:
+                        place2.startAnimation(animation);
+                        break;
+                    case R.id.place3:
+                        place3.startAnimation(animation);
+                        break;
+                    case R.id.knowbutton:
+                        knowbutton.startAnimation(animation);
+                        break;
                 }
 
             }
@@ -449,6 +535,7 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
                     startActivity(mIntent);
                 }
                 delay(3000);
+                collectcount++;
                 arstamp.setImageResource(R.drawable.donestamp);
                 break;
             case R.id.stampcollect:
@@ -494,6 +581,66 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.waterMRT2:
                 map.setImageResource(R.drawable.mapkutin);
                 break;
+            case R.id.infoclose_bt:
+                closebutton.setVisibility(View.INVISIBLE);
+                info.setVisibility(View.INVISIBLE);
+                break;
+            case R.id.place1:
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(flowerPos, 15));
+                currentlocation.setText("現在位置 : 台電大樓站");
+                goal.setText("圓山站");
+                infoline1.setText("松山新店線");
+                int greencolor=Color.parseColor("#67C6A6");
+                infoline1.setTextColor(greencolor);
+                infoline2.setText("淡水信義線");
+                stopnum.setText("2");
+                stopnum2.setText("6");
+                stop1.setText("中正紀念堂站");
+                stop2.setText("圓山站");
+                exit.setVisibility(View.VISIBLE);
+                mrtview.setImageResource(R.drawable.metrotaipei2);
+                infolinear2.setVisibility(View.VISIBLE);
+                closebutton.setVisibility(View.VISIBLE);
+                info.setVisibility(View.VISIBLE);
+                info.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                closebutton.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                break;
+            case R.id.place2:
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pos2, 15));
+                currentlocation.setText("現在位置 : 圓山站");
+                goal.setText("復興崗站");
+                infoline1.setText("淡水信義線");
+                int color= Color.parseColor("#EC7A8E");
+                infoline1.setTextColor(color);
+                stopnum.setText("9");
+                stop1.setText("復興崗站");
+                mrtview.setImageResource(R.drawable.metrotaipei);
+                infolinear2.setVisibility(View.INVISIBLE);
+                info.setVisibility(View.VISIBLE);
+                exit.setVisibility(View.INVISIBLE);
+                closebutton.setVisibility(View.VISIBLE);
+                info.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                closebutton.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                break;
+            case R.id.place3:
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos1, 15));
+                currentlocation.setText("現在位置 : 復興崗站");
+                goal.setText("淡水站");
+                infoline1.setText("淡水信義線");
+                int redcolor= Color.parseColor("#EC7A8E");
+                infoline1.setTextColor(redcolor);
+                stopnum.setText("5");
+                stop1.setText("淡水站");
+                mrtview.setImageResource(R.drawable.metrotaipei3);
+                infolinear2.setVisibility(View.INVISIBLE);
+                info.setVisibility(View.VISIBLE);
+                exit.setVisibility(View.VISIBLE);
+                closebutton.setVisibility(View.VISIBLE);
+                info.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                closebutton.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                break;
+            case R.id.knowbutton:
+                unlocked.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -547,6 +694,34 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
         String cardID = ByteArrayToHexString(intent.getByteArrayExtra(NfcAdapter.EXTRA_ID));
         if (cardID.equals("04B0F359210000")) {
             if (!foundstamp1) {
+
+                first_nfc_alert_vis.setVisibility(View.VISIBLE);
+                place_name1_vis.setVisibility(View.VISIBLE);
+                scrollView_for_nfc1_vis.setVisibility(View.VISIBLE);
+                cuteboy_nfc_vis1.setVisibility(View.VISIBLE);
+                cuteboy_nfc_vis2.setVisibility(View.VISIBLE);
+                story_closebutton1.setVisibility(View.VISIBLE);
+
+                first_nfc_alert_vis.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show));
+                place_name1_vis.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show));
+                scrollView_for_nfc1_vis.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show));
+                cuteboy_nfc_vis1.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                cuteboy_nfc_vis2.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character_b));
+                story_closebutton1.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+
+                story_closebutton1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        first_nfc_alert_vis.setVisibility(View.INVISIBLE);
+                        place_name1_vis.setVisibility(View.INVISIBLE);
+                        scrollView_for_nfc1_vis.setVisibility(View.INVISIBLE);
+                        cuteboy_nfc_vis1.setVisibility(View.INVISIBLE);
+                        cuteboy_nfc_vis2.setVisibility(View.INVISIBLE);
+                        story_closebutton1.setVisibility(View.INVISIBLE);
+                    }
+                });
+
                 stamp1.setImageResource(R.drawable.p1);
                 ObjectAnimator animTxtAlpha =
                         ObjectAnimator.ofFloat(stamp1, "alpha", 0, 1);
@@ -556,6 +731,11 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
                 animTxtAlpha.setInterpolator(new LinearInterpolator());
                 animTxtAlpha.start();
                 foundstamp1=true;
+                collectcount++;
+                if (collectcount==3){
+                    unlocked.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                    unlocked.setVisibility(View.VISIBLE);
+                }
             }
         }
         if (cardID.equals("047CFB59210000")) {
@@ -569,6 +749,11 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
                 animTxtAlpha.setInterpolator(new LinearInterpolator());
                 animTxtAlpha.start();
                 foundstamp2=true;
+                collectcount++;
+                if (collectcount==3){
+                    unlocked.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                    unlocked.setVisibility(View.VISIBLE);
+                }
             }
         }
         if (cardID.equals("044A7001210000")) {
@@ -582,6 +767,11 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
                 animTxtAlpha.setInterpolator(new LinearInterpolator());
                 animTxtAlpha.start();
                 foundstamp3=true;
+                collectcount++;
+                if (collectcount==3){
+                    unlocked.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                    unlocked.setVisibility(View.VISIBLE);
+                }
             }
         }
     }
@@ -651,7 +841,7 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
                     dis =  (0.89976)*Math.pow(ratio,7.7095) + 0.111;
                 }
                 try {
-                    /*if (device.getName().equals(ID_target)) {
+                    if (device.getName().equals(ID_target)) {
                         foundchat=true;
                         if (!foundruntext){
                             Thread t1=new Thread (r2);
@@ -659,7 +849,7 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
                             foundruntext=true;
                             mBluetoothAdapter.cancelDiscovery();
                         }
-                    }*/
+                    }
                     if (device.getName().equals(ID_target)){
                         if (!found) {
                             final Vibrator vibrator=(Vibrator)getSystemService(Service.VIBRATOR_SERVICE);

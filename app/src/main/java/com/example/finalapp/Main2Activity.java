@@ -65,13 +65,6 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     ViewPager pager;
     ArrayList<View> pagerList;
 
-    private BluetoothAdapter mBluetoothAdapter;
-    private List<String> bluetoothdeviceslist = new ArrayList<String>();
-    private static final int PERMISSION_REQUEST_COARSE_LOCATION = 1;
-    private String ID_target = "BR517484";
-    double dis;
-    boolean foundchat = false;
-    boolean foundruntext = false;
     Table mTable;
     String s1;
     ImageButton person4;
@@ -100,6 +93,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     String currentlocation;
 
 
+
     //shake-ian
     private SensorManager mSensorManager;   //體感(Sensor)使用管理
     private Sensor mSensor;                 //體感(Sensor)類別
@@ -112,6 +106,8 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     private static final int SPEED_SHRESHOLD = 3000;
     //觸發間隔時間
     private static final int UPTATE_INTERVAL_TIME = 70;
+
+
 
 
     private Runnable r2 = new Runnable() {
@@ -159,14 +155,6 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         username=bundle.getString("name");
 
         mTable = new Table("http://172.20.10.7:8000/api", "chatroom", "Secondteam", "secondteam12345");
-
-        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        checkBluetoothPermission();
-        SearchBluetooth();
-        if (mBluetoothAdapter.isDiscovering()) {
-            mBluetoothAdapter.cancelDiscovery();
-        }
-        mBluetoothAdapter.startDiscovery();
         pager = (ViewPager) findViewById(R.id.pager);
 
         LayoutInflater li = getLayoutInflater().from(this);
@@ -213,7 +201,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                     Bundle bundleview=new Bundle();
                     bundleview.putString("username",username);
                     searchIntent.putExtras(bundleview);
-                    mBluetoothAdapter.cancelDiscovery();
+                    search_et1.setText("");
                     startActivity(searchIntent);
                 }else {
                     Intent searchmapIntent = new Intent(Main2Activity.this, MRTStationActivity.class);
@@ -223,7 +211,6 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                     bundle.putString("username", username);
                     searchmapIntent.putExtras(bundle);
                     search_et1.setText("");
-                    mBluetoothAdapter.cancelDiscovery();
                     startActivity(searchmapIntent);
                 }
             }
@@ -256,6 +243,8 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         search_et = (EditText) v2.findViewById(R.id.et_search);
         runText = (AutoScrollTextView) v2.findViewById(R.id.runtext);
         runText.setMarqueeRepeatLimit(-1);
+        Thread t1=new Thread (r2);
+        t1.start();
         pen= (ImageButton) v2.findViewById(R.id.button_pen);
         pen.setOnClickListener(this);
         pen.setOnTouchListener(touchlistener);
@@ -396,15 +385,13 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 //overridePendingTransition(0,0);
                 break;
             case R.id.chat_bt:
-                if (foundchat) {
-                    Intent chatIntent = new Intent(Main2Activity.this, ChatRoom.class);
-                    chatIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Username",username);
-                    chatIntent.putExtras(bundle);
-                    startActivity(chatIntent);
-                    //overridePendingTransition(0,0);
-                }
+                Intent chatIntent = new Intent(Main2Activity.this, ChatRoom.class);
+                chatIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Bundle bundle = new Bundle();
+                bundle.putString("Username",username);
+                chatIntent.putExtras(bundle);
+                startActivity(chatIntent);
+                //overridePendingTransition(0,0);
                 break;
             case R.id.button_person4:
                 Intent personIntent = new Intent(Main2Activity.this, DcardPersonActivity.class);
@@ -427,6 +414,11 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 recommendIntent.putExtras(recommendbundle);
                 startActivity(recommendIntent);
                 break;
+
+            case R.id.limited1:
+                Intent timelimitedevent = new Intent(Main2Activity.this, TimeLimitEventActivity.class);
+                timelimitedevent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(timelimitedevent);
         }
 
     }
@@ -539,93 +531,6 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         }
     };
 
-    public void checkBluetoothPermission() {
-        if (Build.VERSION.SDK_INT >=Build.VERSION_CODES.M) {
-            // Android M Permission check
-            if (checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},PERMISSION_REQUEST_COARSE_LOCATION);
-            }
-        }
-    }
-    public void SearchBluetooth(){
-        if(mBluetoothAdapter == null){ //沒找到
-            Toast.makeText(this,"not find the bluetooth",Toast.LENGTH_SHORT).show();
-            finish();
-        }
-        if(!mBluetoothAdapter.isEnabled()){
-            //藍芽未開 跳出視窗提示使用者是否開啟藍芽
-            Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(intent,1);
-            Set<BluetoothDevice> myDevices = mBluetoothAdapter.getBondedDevices();
-            if(myDevices.size() > 0) {
-                for(BluetoothDevice device : myDevices)
-                    bluetoothdeviceslist.add(device.getName()+":"+device.getAddress()+"\n"); //藍芽連接的裝置資訊
-            }
-        }
-        //註冊BroadcastReceiver: 用來接收搜尋到的結果
-        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-        registerReceiver(myreceiver, filter);
-        filter = new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
-        registerReceiver(myreceiver, filter);
-    }
 
-    final BroadcastReceiver myreceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            //收到的廣播類型
-            String action = intent.getAction();
-            //發現設備的廣播
-            if (BluetoothDevice.ACTION_FOUND.equals(action)) {
-                //從intent中獲取設備
-                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-                int rssi = intent.getShortExtra(BluetoothDevice.EXTRA_RSSI,Short.MIN_VALUE);
-                double txPower = -59;
-                double ratio = rssi*1.0/txPower;
-                if (ratio < 1.0) {
-                    dis = Math.pow(ratio,10);
-                }
-                else {
-                    dis =  (0.89976)*Math.pow(ratio,7.7095) + 0.111;
-                }
-                try{
-                    if (device.getName().equals(ID_target)) {
-                        foundchat=true;
-                        if (!foundruntext){
-                            Thread t1=new Thread(r2);
-                            t1.start();
-                            foundruntext=true;
-                            mBluetoothAdapter.cancelDiscovery();
-                        }
-                    }
-                    /*if (device.getName().equals(ID_target)){
-                        if (!found) {
-                            final Vibrator vibrator=(Vibrator)getSystemService(Service.VIBRATOR_SERVICE);
-                            vibrator.vibrate(1000);
-                            //vibrator.vibrate(new long []{500,500,500,500,500},0);
-                            AlertDialog a = new AlertDialog.Builder(Main2Activity.this).setTitle("博愛座需求提醒")
-
-                                    .setIcon(R.drawable.seat)
-
-                                    .setMessage("周遭有博愛座需求者")
-
-                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            mBluetoothAdapter.cancelDiscovery();
-                                            vibrator.cancel();
-                                        }
-                                    }).show();
-                            //a.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                            a.setCanceledOnTouchOutside(false);
-                            found=true;
-                        }
-                    }*/
-
-                }
-                catch(Exception e){
-                }
-            }
-        }
-    };
 
 }

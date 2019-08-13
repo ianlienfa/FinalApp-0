@@ -15,6 +15,7 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.location.Location;
 import android.location.LocationListener;
@@ -139,12 +140,26 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
     boolean recommend;
     String username;
 
-    LinearLayout place1;
-    LinearLayout place2;
-    LinearLayout place3;
+    ImageButton place1;
+    ImageButton place2;
+    ImageButton place3;
     TextView placetext1;
     TextView placetext2;
     TextView placetext3;
+
+    LinearLayout info;
+    LinearLayout infolinear2;
+    TextView currentlocation;
+    TextView goal;
+    TextView infoline1;
+    TextView infoline2;
+    TextView stop1;
+    TextView stop2;
+    TextView stopnum;
+    TextView stopnum2;
+    TextView exit;
+    ImageButton closebutton;
+    ImageView mrtview;
 
     LatLng Pos[]=new LatLng[3];
 
@@ -284,18 +299,35 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
         person4.setOnTouchListener(touchlistener);
 
         //map
-        place1=v2.findViewById(R.id.placegroup1);
+        place1=v2.findViewById(R.id.place1);
         place1.setOnClickListener(this);
         place1.setOnTouchListener(touchlistener);
-        place2=v2.findViewById(R.id.placegroup2);
+        place2=v2.findViewById(R.id.place2);
         place2.setOnClickListener(this);
         place2.setOnTouchListener(touchlistener);
-        place3=v2.findViewById(R.id.placegroup3);
+        place3=v2.findViewById(R.id.place3);
         place3.setOnClickListener(this);
         place3.setOnTouchListener(touchlistener);
         placetext1=v2.findViewById(R.id.placetext1);
         placetext2=v2.findViewById(R.id.placetext2);
         placetext3=v2.findViewById(R.id.placetext3);
+
+
+        info=v2.findViewById(R.id.information);
+        currentlocation=v2.findViewById(R.id.currentlocation);
+        goal=v2.findViewById(R.id.goal);
+        infoline1=v2.findViewById(R.id.infoline1);
+        infoline2=v2.findViewById(R.id.infoline2);
+        stopnum=v2.findViewById(R.id.stopnum);
+        stopnum2=v2.findViewById(R.id.stopnum2);
+        stop1=v2.findViewById(R.id.stop1);
+        stop2=v2.findViewById(R.id.stop2);
+        infolinear2=v2.findViewById(R.id.infolinear2);
+        closebutton=v2.findViewById(R.id.infoclose_bt);
+        closebutton.setOnClickListener(this);
+        closebutton.setOnTouchListener(touchlistener);
+        mrtview=v2.findViewById(R.id.mrtview);
+        exit=v2.findViewById(R.id.infoexit);
 
         //ian's new thing starts from here
         first_nfc_alert_vis  = v1.findViewById(R.id.first_nfc_alert_vis);
@@ -470,13 +502,13 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
                     case R.id.button_person4:
                         person4.startAnimation(animation);
                         break;
-                    case R.id.placegroup1:
+                    case R.id.place1:
                         place1.startAnimation(animation);
                         break;
-                    case R.id.placegroup2:
+                    case R.id.place2:
                         place2.startAnimation(animation);
                         break;
-                    case R.id.placegroup3:
+                    case R.id.place3:
                         place3.startAnimation(animation);
                         break;
                 }
@@ -529,13 +561,13 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
                     case R.id.button_person4:
                         person4.startAnimation(animation);
                         break;
-                    case R.id.placegroup1:
+                    case R.id.place1:
                         place1.startAnimation(animation);
                         break;
-                    case R.id.placegroup2:
+                    case R.id.place2:
                         place2.startAnimation(animation);
                         break;
-                    case R.id.placegroup3:
+                    case R.id.place3:
                         place3.startAnimation(animation);
                         break;
                 }
@@ -624,14 +656,64 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
                 Intent personIntent = new Intent(SearchMapActivity.this, DcardPersonActivity.class);
                 personIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(personIntent);
-            case R.id.placegroup1:
+                break;
+            case R.id.infoclose_bt:
+                closebutton.setVisibility(View.INVISIBLE);
+                info.setVisibility(View.INVISIBLE);
+                break;
+            case R.id.place1:
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Pos[0], 15));
+                currentlocation.setText("現在位置 : 台電大樓站");
+                goal.setText("西門站");
+                infoline1.setText("松山新店線");
+                int greencolor= Color.parseColor("#67C6A6");
+                infoline1.setTextColor(greencolor);
+                stopnum.setText("4");
+                stop1.setText("西門站");
+                exit.setText("1號出口");
+                mrtview.setImageResource(R.drawable.metrotaipei2);
+                infolinear2.setVisibility(View.INVISIBLE);
+                closebutton.setVisibility(View.VISIBLE);
+                info.setVisibility(View.VISIBLE);
+                info.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                closebutton.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
                 break;
-            case R.id.placegroup2:
+            case R.id.place2:
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Pos[1], 15));
+                currentlocation.setText("現在位置 : 西門站");
+                goal.setText("東門站");
+                infoline1.setText("松山新店線");
+                int greencolor2=Color.parseColor("#67C6A6");
+                infoline1.setTextColor(greencolor2);
+                infoline2.setText("淡水信義線");
+                stopnum.setText("2");
+                stopnum2.setText("1");
+                stop1.setText("中正紀念堂站");
+                stop2.setText("東門站");
+                exit.setText("5號出口");
+                mrtview.setImageResource(R.drawable.metrotaipei2);
+                infolinear2.setVisibility(View.VISIBLE);
+                closebutton.setVisibility(View.VISIBLE);
+                info.setVisibility(View.VISIBLE);
+                info.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                closebutton.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
                 break;
-            case R.id.placegroup3:
+            case R.id.place3:
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Pos[2], 15));
+                currentlocation.setText("現在位置 : 東門站");
+                goal.setText("劍潭站");
+                infoline1.setText("淡水信義線");
+                int redcolor= Color.parseColor("#EC7A8E");
+                infoline1.setTextColor(redcolor);
+                stopnum.setText("8");
+                stop1.setText("劍潭站");
+                exit.setText("1號出口");
+                mrtview.setImageResource(R.drawable.metrotaipei3);
+                infolinear2.setVisibility(View.INVISIBLE);
+                info.setVisibility(View.VISIBLE);
+                closebutton.setVisibility(View.VISIBLE);
+                info.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                closebutton.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
                 break;
         }
     }

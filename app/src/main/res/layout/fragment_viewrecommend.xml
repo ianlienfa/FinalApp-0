@@ -163,6 +163,13 @@
                         android:src="@drawable/star3"
                         android:scaleType="fitStart" />
                 </LinearLayout>
+                <ImageButton
+                    android:id="@+id/view_add1"
+                    android:layout_height="25dp"
+                    android:layout_width="25dp"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/add" />
             </LinearLayout>
 
             <LinearLayout
@@ -232,7 +239,13 @@
                         android:src="@drawable/star4"
                         android:scaleType="fitStart" />
                 </LinearLayout>
-
+                <ImageButton
+                    android:id="@+id/view_add2"
+                    android:layout_height="25dp"
+                    android:layout_width="25dp"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/add" />
             </LinearLayout>
 
             <LinearLayout
@@ -302,6 +315,13 @@
                         android:src="@drawable/star4"
                         android:scaleType="fitStart" />
                 </LinearLayout>
+                <ImageButton
+                    android:id="@+id/view_add3"
+                    android:layout_height="25dp"
+                    android:layout_width="25dp"
+                    android:background="#00000000"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/add" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

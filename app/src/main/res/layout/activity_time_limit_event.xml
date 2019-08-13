@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".TimeLimitEventActivity"
+android:background="@drawable/timelimiteventback"
+    >
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginStart="32.51dp"
+    android:layout_marginTop="80.92dp"
+    android:text="台北 MOCA"
+    android:textColor="#FFFFFFFF"
+    android:textSize="28sp"
+
+    />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginStart="33dp"
+    android:layout_marginTop="119dp"
+    android:text="少年當代"
+    android:textColor="#FFFFFFFF"
+    android:textSize="38sp"
+    android:textStyle="bold"
+
+    />
+
+
+
+
+
+<Button
+    android:id="@+id/event_website_button"
+    android:layout_width="28.84dp"
+    android:layout_height="28.84dp"
+    android:background="@drawable/questionmark"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginStart="288dp"
+    android:layout_marginTop="85dp"
+
+    />
+
+
+<ScrollView
+    android:layout_width="287dp"
+    android:layout_height="300dp"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginStart="37dp"
+    android:layout_marginTop="217dp"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="「將物件保留作為系統、將生產作為鏡照、將死亡作為交換、將世界作為幻影、讓邪惡透明、讓多數沉默、讓你的誘惑活著、讓你的記憶冷卻、視自己宛如另一個自己、視完美如同一個罪行、為最終而保持幻覺、為片刻而留在線上…」 　－布希亞《冷記憶 III》
+我是誰？我們是誰？我的理想與我們的現實之距離，能有多近，能有多遠？\n\n
+走出當代逐新思維，「少年當代－未終結的過去進行式」重返一個人文命題－究竟是什麼生命故事、日常事件、生長生態與面世態度，產生了當代藝術的面貌與其精神原型？\n\n
+從「冷社會」到「冷記憶」，彷彿在邊界泛光的藝術視界背後，都有其難解的歷史黑洞。臺灣現當代藝術發展，受到原民、移民、殖民與國族主義的糾結，因文化論點而出現定義、轉譯、誤譯與踰越的過程，導致臺灣當代藝術始終處在一個無法定錨的焦慮狀態。以「台北當代藝術館」這個場域為臨時載體，「少年當代－未終結的過去進行式」藉當代創作者的記憶與想像追溯，重新檢視少年當代發生的精神根源、歷史現場與藝術語言轉換，重新叩問了「誰的當代？誰的藝術？誰的歷史？」這個未終結的議題。\n\n
+「少年當代」一詞，意指當代藝術具體成形之前的重要啟蒙階段與影響性的生態。如果當代藝術的神話，仍具有尋找人類生活精神潛能的能量，藝術家們所匯集的原生家庭文化、狂飆少年紀事、看得見與看不見的社會體制、日常與傳播文化的滲透，已成為傳說的現場，也是今日當代藝術的發展線索。這些少年期的精神遺緒在夢想、禁忌、壓抑、虛無、現實的氛圍中滋長，並透過藝術家們所選擇的媒介，如藍圖、現成物、繪畫、影錄、音樂、物件、影片、建物、大眾文化、報章訊息等觀念使用的轉化，呈現出介於想像與真實之間的視覺景觀，也使其作品成為藝術與社會的橋樑。"
+        android:textColor="#FFFFFFFF"
+        android:textSize="13sp"
+        />
+
+
+</ScrollView>
+
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginStart="180dp"
+    android:layout_marginTop="564dp"
+    android:text="馬上前往"
+    android:textColor="#FFFFFFFF"
+    android:textSize="18sp"
+    android:textStyle="bold"
+
+    />
+
+<Button
+    android:id="@+id/GoGoButton"
+    android:layout_width="41.86dp"
+    android:layout_height="41.86dp"
+    android:background="@drawable/gogo"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginStart="265.83dp"
+    android:layout_marginTop="557.83dp"
+    />
+</RelativeLayout>
