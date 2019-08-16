@@ -64,12 +64,12 @@
         "source": "C:\\Users\\user\\Desktop\\FinalApp\\app\\src\\main\\res\\drawable\\peito_ian.jpg"
     },
     {
-        "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_seekbar_track_material.xml.flat",
-        "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\40a28a00d853f88edc672f0e1030c706\\res\\drawable\\abc_seekbar_track_material.xml"
-    },
-    {
         "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\40a28a00d853f88edc672f0e1030c706\\res\\drawable-mdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_seekbar_track_material.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\40a28a00d853f88edc672f0e1030c706\\res\\drawable\\abc_seekbar_track_material.xml"
     },
     {
         "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_grow_fade_in_from_bottom.xml.flat",
@@ -182,6 +182,10 @@
     {
         "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\8ab232236c8e3550b09e0a7cdf12bd3b\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ok.png.flat",
+        "source": "C:\\Users\\user\\Desktop\\FinalApp\\app\\src\\main\\res\\drawable\\ok.png"
     },
     {
         "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
@@ -450,6 +454,10 @@
     {
         "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\40a28a00d853f88edc672f0e1030c706\\res\\drawable-xhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_p2.png.flat",
+        "source": "C:\\Users\\user\\Desktop\\FinalApp\\app\\src\\main\\res\\drawable\\p2.png"
     },
     {
         "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_timelimiteventback.jpg.flat",
@@ -820,6 +828,10 @@
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\40a28a00d853f88edc672f0e1030c706\\res\\drawable-hdpi-v4\\abc_list_longpressed_holo.9.png"
     },
     {
+        "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_metrotaipei4.png.flat",
+        "source": "C:\\Users\\user\\Desktop\\FinalApp\\app\\src\\main\\res\\drawable-v24\\metrotaipei4.png"
+    },
+    {
         "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\user\\Desktop\\FinalApp\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
@@ -858,10 +870,6 @@
     {
         "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_search.png.flat",
         "source": "C:\\Users\\user\\Desktop\\FinalApp\\app\\src\\main\\res\\drawable-v24\\search.png"
-    },
-    {
-        "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_p2.png.flat",
-        "source": "C:\\Users\\user\\Desktop\\FinalApp\\app\\src\\main\\res\\drawable-v24\\p2.png"
     },
     {
         "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_light.xml.flat",
@@ -934,6 +942,10 @@
     {
         "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\40a28a00d853f88edc672f0e1030c706\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_metrotaipei6.png.flat",
+        "source": "C:\\Users\\user\\Desktop\\FinalApp\\app\\src\\main\\res\\drawable-v24\\metrotaipei6.png"
     },
     {
         "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_edittext.xml.flat",
@@ -1386,6 +1398,10 @@
     {
         "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_panda2.jpg.flat",
         "source": "C:\\Users\\user\\Desktop\\FinalApp\\app\\src\\main\\res\\drawable\\panda2.jpg"
+    },
+    {
+        "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_metrotaipei5.png.flat",
+        "source": "C:\\Users\\user\\Desktop\\FinalApp\\app\\src\\main\\res\\drawable-v24\\metrotaipei5.png"
     },
     {
         "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_edittextcolor.xml.flat",
@@ -1952,10 +1968,6 @@
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\8ab232236c8e3550b09e0a7cdf12bd3b\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
     },
     {
-        "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_p1.png.flat",
-        "source": "C:\\Users\\user\\Desktop\\FinalApp\\app\\src\\main\\res\\drawable-v24\\p1.png"
-    },
-    {
         "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_btn_checkable.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\40a28a00d853f88edc672f0e1030c706\\res\\color-v23\\abc_tint_btn_checkable.xml"
     },
@@ -2510,6 +2522,10 @@
     {
         "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_metrotaipei2.png.flat",
         "source": "C:\\Users\\user\\Desktop\\FinalApp\\app\\src\\main\\res\\drawable\\metrotaipei2.png"
+    },
+    {
+        "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable_p1.png.flat",
+        "source": "C:\\Users\\user\\Desktop\\FinalApp\\app\\src\\main\\res\\drawable\\p1.png"
     },
     {
         "merged": "C:\\Users\\user\\Desktop\\FinalApp\\app\\build\\intermediates\\res\\merged\\debug\\layout-watch-v20_abc_alert_dialog_button_bar_material.xml.flat",

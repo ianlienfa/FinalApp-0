@@ -530,12 +530,16 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
                 }
                 break;
             case R.id.camera:
-                Intent mIntent=getPackageManager().getLaunchIntentForPackage("com.ar.test");
+                Intent mIntent=getPackageManager().getLaunchIntentForPackage("com.AR.bird");
                 if (mIntent!=null){
                     startActivity(mIntent);
                 }
                 delay(3000);
                 collectcount++;
+                if (collectcount==4){
+                    unlocked.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                    unlocked.setVisibility(View.VISIBLE);
+                }
                 arstamp.setImageResource(R.drawable.donestamp);
                 break;
             case R.id.stampcollect:
@@ -551,7 +555,7 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
                 writeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 Bundle bundleplus1=new Bundle();
                 bundleplus1.putString("Username",username);
-                bundleplus1.putString("Location","台北車站");
+                bundleplus1.putString("Location","圓山站");
                 writeIntent.putExtras(bundleplus1);
                 startActivity(writeIntent);
                 break;
@@ -560,7 +564,7 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
                 write2Intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 Bundle bundleplus2=new Bundle();
                 bundleplus2.putString("Username",username);
-                bundleplus2.putString("Location","北投站");
+                bundleplus2.putString("Location","復興崗站");
                 write2Intent.putExtras(bundleplus2);
                 startActivity(write2Intent);
                 break;
@@ -732,7 +736,7 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
                 animTxtAlpha.start();
                 foundstamp1=true;
                 collectcount++;
-                if (collectcount==3){
+                if (collectcount==4){
                     unlocked.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
                     unlocked.setVisibility(View.VISIBLE);
                 }
@@ -750,7 +754,7 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
                 animTxtAlpha.start();
                 foundstamp2=true;
                 collectcount++;
-                if (collectcount==3){
+                if (collectcount==4){
                     unlocked.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
                     unlocked.setVisibility(View.VISIBLE);
                 }
@@ -768,7 +772,7 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
                 animTxtAlpha.start();
                 foundstamp3=true;
                 collectcount++;
-                if (collectcount==3){
+                if (collectcount==4){
                     unlocked.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
                     unlocked.setVisibility(View.VISIBLE);
                 }
@@ -850,7 +854,7 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
                             mBluetoothAdapter.cancelDiscovery();
                         }
                     }
-                    if (device.getName().equals(ID_target)){
+                    /*if (device.getName().equals(ID_target)){
                         if (!found) {
                             final Vibrator vibrator=(Vibrator)getSystemService(Service.VIBRATOR_SERVICE);
                             vibrator.vibrate(1000);
@@ -870,7 +874,7 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
                             found=true;
 
                         }
-                    }
+                    }*/
                 }
                 catch(Exception e){
                 }

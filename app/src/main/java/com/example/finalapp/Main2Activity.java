@@ -92,8 +92,6 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     TextView maintitle2;
     String currentlocation;
 
-
-
     //shake-ian
     private SensorManager mSensorManager;   //體感(Sensor)使用管理
     private Sensor mSensor;                 //體感(Sensor)類別
@@ -106,9 +104,6 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     private static final int SPEED_SHRESHOLD = 3000;
     //觸發間隔時間
     private static final int UPTATE_INTERVAL_TIME = 70;
-
-
-
 
     private Runnable r2 = new Runnable() {
         public void run() {
@@ -149,6 +144,9 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         setContentView(R.layout.activity_main2);
 
         Bundle bundle=getIntent().getExtras();
@@ -249,14 +247,12 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         pen.setOnClickListener(this);
         pen.setOnTouchListener(touchlistener);
 
-
         //shake-ian
         mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mSensorManager.registerListener(SensorListener, mSensor,SensorManager.SENSOR_DELAY_GAME);
 
     }
-
 
     private SensorEventListener SensorListener= new SensorEventListener() {
         @Override
@@ -272,7 +268,6 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
 
             mLastUpdateTime = mCurrentUpdateTime;
 
-
             // 取得xyz體感(Sensor)偏移
             float x = mSensorEvent.values[0];
             float y = mSensorEvent.values[1];
@@ -284,7 +279,6 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
             mLastX = x;
             mLastY = y;
             mLastZ = z;
-
 
             // 體感(Sensor)甩動力道速度公式
             mSpeed = Math.sqrt(mDeltaX * mDeltaX + mDeltaY * mDeltaY + mDeltaZ * mDeltaZ) / mTimeInterval * 10000;
@@ -303,8 +297,6 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
             else{
             }
         }
-
-
 
         @Override
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
@@ -414,13 +406,11 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 recommendIntent.putExtras(recommendbundle);
                 startActivity(recommendIntent);
                 break;
-
             case R.id.limited1:
                 Intent timelimitedevent = new Intent(Main2Activity.this, TimeLimitEventActivity.class);
                 timelimitedevent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(timelimitedevent);
         }
-
     }
 
     ImageButton.OnTouchListener touchlistener = new ImageButton.OnTouchListener() {
@@ -525,12 +515,8 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                         limited2.startAnimation(animation);
                         break;
                 }
-
             }
             return false;
         }
     };
-
-
-
 }

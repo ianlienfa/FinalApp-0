@@ -804,6 +804,9 @@ drawable memorywrite
 drawable metrotaipei
 drawable metrotaipei2
 drawable metrotaipei3
+drawable metrotaipei4
+drawable metrotaipei5
+drawable metrotaipei6
 drawable microphone
 drawable mypleasant
 drawable navigation
@@ -819,6 +822,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable ok
 drawable p1
 drawable p2
 drawable p3
@@ -1139,6 +1143,8 @@ id notification_background
 id notification_main_column
 id notification_main_column_container
 id off
+id ok
+id ok2
 id on
 id onTouch
 id oval

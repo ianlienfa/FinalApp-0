@@ -48,7 +48,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/collect3"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/collect1" />
+        app:srcCompat="@drawable/collect3" />
 
     <ImageButton
         android:id="@+id/collect2"
@@ -72,7 +72,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/collect4"
         app:layout_constraintTop_toBottomOf="@+id/tv1"
-        app:srcCompat="@drawable/collect3" />
+        app:srcCompat="@drawable/collect1" />
 
     <ImageButton
         android:id="@+id/collect4"

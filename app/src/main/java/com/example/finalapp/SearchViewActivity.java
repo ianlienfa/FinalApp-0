@@ -63,6 +63,7 @@ public class SearchViewActivity extends AppCompatActivity implements OnMapReadyC
     TextView viewtext2;
     ImageView star1;
     ImageView star2;
+    ImageButton ok;
 
 
     @Override
@@ -81,7 +82,7 @@ public class SearchViewActivity extends AppCompatActivity implements OnMapReadyC
         pagerList.add(v2);
 
         pager.setAdapter(new myViewPagerAdapter(pagerList));
-        pager.setCurrentItem(0);
+        pager.setCurrentItem(1);
         tag1=(Button)v2.findViewById(R.id.tamsuitag1);
         tag1.setOnTouchListener(touchlistener);
         tag2=(Button)v2.findViewById(R.id.tamsuitag2);
@@ -117,6 +118,8 @@ public class SearchViewActivity extends AppCompatActivity implements OnMapReadyC
         viewtext2=v2.findViewById(R.id.tamsuiviewtext2);
         star1=v2.findViewById(R.id.tamsuistar1);
         star2=v2.findViewById(R.id.tamsuistar2);
+        ok=v2.findViewById(R.id.ok);
+        ok.setOnTouchListener(touchlistener);
 
 
         navigate.setOnClickListener(new Button.OnClickListener() {
@@ -128,6 +131,13 @@ public class SearchViewActivity extends AppCompatActivity implements OnMapReadyC
                 bundle1.putString("username", username);
                 Intent.putExtras(bundle1);
                 startActivity(Intent);
+            }
+        });
+
+        ok.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pager.setCurrentItem(0);
             }
         });
 
@@ -143,17 +153,17 @@ public class SearchViewActivity extends AppCompatActivity implements OnMapReadyC
         switch(v.getId()){
             case R.id.view_add1:
                 mMap.addMarker(new MarkerOptions().position(flowerPos).title("花博公園"));
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(flowerPos, 15));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(flowerPos, 10));
                 Toast.makeText(SearchViewActivity.this, "已加入 花博公園", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.view_add2:
                 mMap.addMarker(new MarkerOptions().position(pos2).title("落雨松小徑"));
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pos2, 15));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pos2, 10));
                 Toast.makeText(SearchViewActivity.this, "已加入 落雨松小徑", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.view_add3:
                 mMap.addMarker(new MarkerOptions().position(nowPos1).title("淡水老街"));
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos1, 15));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos1, 10));
                 Toast.makeText(SearchViewActivity.this, "已加入 淡水老街", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.tamsuitag2:
@@ -236,10 +246,16 @@ public class SearchViewActivity extends AppCompatActivity implements OnMapReadyC
                         break;
                     case R.id.view_add1:
                         add1.startAnimation(animation);
+                        break;
                     case R.id.view_add2:
                         add2.startAnimation(animation);
+                        break;
                     case R.id.view_add3:
                         add3.startAnimation(animation);
+                        break;
+                    case R.id.ok:
+                        ok.startAnimation(animation);
+                        break;
 
                 }
 
@@ -263,10 +279,16 @@ public class SearchViewActivity extends AppCompatActivity implements OnMapReadyC
                         break;
                     case R.id.view_add1:
                         add1.startAnimation(animation);
+                        break;
                     case R.id.view_add2:
                         add2.startAnimation(animation);
+                        break;
                     case R.id.view_add3:
                         add3.startAnimation(animation);
+                        break;
+                    case R.id.ok:
+                        ok.startAnimation(animation);
+                        break;
                 }
 
             }

@@ -126,6 +126,8 @@ public class MRTStationActivity extends AppCompatActivity implements OnMapReadyC
     double longitude;
     double latitude;
     boolean found[]=new boolean[5];
+    ImageButton ok;
+
 
     private Runnable r3 = new Runnable(){
         public void run()
@@ -493,7 +495,7 @@ public class MRTStationActivity extends AppCompatActivity implements OnMapReadyC
         pagerList.add(v4);
 
         pager.setAdapter(new myViewPagerAdapter(pagerList));
-        pager.setCurrentItem(0);
+        pager.setCurrentItem(1);
         //map
         navigate = (ImageButton) v2.findViewById(R.id.navigate);
         navigate.setOnClickListener(this);
@@ -554,6 +556,15 @@ public class MRTStationActivity extends AppCompatActivity implements OnMapReadyC
         add5=(ImageButton)v4.findViewById(R.id.button_add5);
         add5.setOnClickListener(this);
         add5.setOnTouchListener(touchlistener);
+        ok=v4.findViewById(R.id.ok2);
+        ok.setOnTouchListener(touchlistener);
+
+        ok.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pager.setCurrentItem(0);
+            }
+        });
 
         SupportMapFragment mapFragment = (SupportMapFragment) this.getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -792,6 +803,9 @@ public class MRTStationActivity extends AppCompatActivity implements OnMapReadyC
                     case R.id.button_add5:
                         add5.startAnimation(animation);
                         break;
+                    case R.id.ok2:
+                        ok.startAnimation(animation);
+                        break;
                 }
 
             } else if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -853,6 +867,9 @@ public class MRTStationActivity extends AppCompatActivity implements OnMapReadyC
                     case R.id.button_add5:
                         add5.startAnimation(animation);
                         break;
+                    case R.id.ok2:
+                        ok.startAnimation(animation);
+                        break;
                 }
             }
             return false;
@@ -866,35 +883,35 @@ public class MRTStationActivity extends AppCompatActivity implements OnMapReadyC
                 found[0]=true;
                 LatLng nowPos1 = new LatLng(Double.parseDouble(templatitude[0]), Double.parseDouble(templongitude[0]));
                 mMap.addMarker(new MarkerOptions().position(nowPos1).title(tempname[0]));
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos1, 15));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos1, 10));
                 Toast.makeText(MRTStationActivity.this, "已加入 "+tempname[0], Toast.LENGTH_SHORT).show();
                 break;
             case R.id.button_add2:
                 found[1]=true;
                 LatLng nowPos2 = new LatLng(Double.parseDouble(templatitude[1]), Double.parseDouble(templongitude[1]));
                 mMap.addMarker(new MarkerOptions().position(nowPos2).title(tempname[1]));
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos2, 15));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos2, 10));
                 Toast.makeText(MRTStationActivity.this, "已加入 "+tempname[1], Toast.LENGTH_SHORT).show();
                 break;
             case R.id.button_add3:
                 found[2]=true;
                 LatLng nowPos3 = new LatLng(Double.parseDouble(templatitude[2]), Double.parseDouble(templongitude[2]));
                 mMap.addMarker(new MarkerOptions().position(nowPos3).title(tempname[2]));
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos3, 15));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos3, 10));
                 Toast.makeText(MRTStationActivity.this, "已加入 "+tempname[2], Toast.LENGTH_SHORT).show();
                 break;
             case R.id.button_add4:
                 found[3]=true;
                 LatLng nowPos4 = new LatLng(Double.parseDouble(templatitude[3]), Double.parseDouble(templongitude[3]));
                 mMap.addMarker(new MarkerOptions().position(nowPos4).title(tempname[3]));
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos4, 15));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos4, 10));
                 Toast.makeText(MRTStationActivity.this, "已加入 "+tempname[3], Toast.LENGTH_SHORT).show();
                 break;
             case R.id.button_add5:
                 found[4]=true;
                 LatLng nowPos5 = new LatLng(Double.parseDouble(templatitude[4]), Double.parseDouble(templongitude[4]));
                 mMap.addMarker(new MarkerOptions().position(nowPos5).title(tempname[4]));
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos5, 15));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(nowPos5, 10));
                 Toast.makeText(MRTStationActivity.this, "已加入 "+tempname[4], Toast.LENGTH_SHORT).show();
                 break;
             case R.id.navigate:

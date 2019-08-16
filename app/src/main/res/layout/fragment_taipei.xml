@@ -14,7 +14,7 @@
         android:layout_marginLeft="44.16dp"
         android:layout_marginTop="85.94dp"
         android:gravity="center"
-        android:text="台北車站"
+        android:text="圓山站"
         android:textColor="#FFFFFF"
         android:textSize="46sp"
         android:textStyle="bold"
@@ -69,11 +69,6 @@
         android:gravity="center"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"/>
-
-
-
-
-
 
     <ImageView
         android:id="@+id/emptyimage4"

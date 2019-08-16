@@ -630,7 +630,7 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
                 writeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 Bundle bundleplus1=new Bundle();
                 bundleplus1.putString("Username",username);
-                bundleplus1.putString("Location","台北車站");
+                bundleplus1.putString("Location","圓山站");
                 writeIntent.putExtras(bundleplus1);
                 startActivity(writeIntent);
                 break;
@@ -639,7 +639,7 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
                 write2Intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 Bundle bundleplus2=new Bundle();
                 bundleplus2.putString("Username",username);
-                bundleplus2.putString("Location","北投站");
+                bundleplus2.putString("Location","復興崗站");
                 write2Intent.putExtras(bundleplus2);
                 startActivity(write2Intent);
                 break;
@@ -663,64 +663,69 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
                 break;
             case R.id.place1:
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Pos[0], 15));
-                currentlocation.setText("現在位置 : 台電大樓站");
-                goal.setText("西門站");
-                infoline1.setText("松山新店線");
-                int greencolor= Color.parseColor("#67C6A6");
-                infoline1.setTextColor(greencolor);
-                stopnum.setText("4");
-                stop1.setText("西門站");
-                exit.setText("1號出口");
-                mrtview.setImageResource(R.drawable.metrotaipei2);
-                infolinear2.setVisibility(View.INVISIBLE);
-                closebutton.setVisibility(View.VISIBLE);
-                info.setVisibility(View.VISIBLE);
-                info.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
-                closebutton.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                if (recommend) {
+                    currentlocation.setText("現在位置 : 台電大樓站");
+                    goal.setText("西門站");
+                    infoline1.setText("松山新店線");
+                    int greencolor = Color.parseColor("#67C6A6");
+                    infoline1.setTextColor(greencolor);
+                    stopnum.setText("4");
+                    stop1.setText("西門站");
+                    exit.setText("1號出口");
+                    mrtview.setImageResource(R.drawable.metrotaipei4);
+                    infolinear2.setVisibility(View.INVISIBLE);
+                    closebutton.setVisibility(View.VISIBLE);
+                    info.setVisibility(View.VISIBLE);
+                    info.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                    closebutton.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                }
                 break;
             case R.id.place2:
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Pos[1], 15));
-                currentlocation.setText("現在位置 : 西門站");
-                goal.setText("東門站");
-                infoline1.setText("松山新店線");
-                int greencolor2=Color.parseColor("#67C6A6");
-                infoline1.setTextColor(greencolor2);
-                infoline2.setText("淡水信義線");
-                stopnum.setText("2");
-                stopnum2.setText("1");
-                stop1.setText("中正紀念堂站");
-                stop2.setText("東門站");
-                exit.setText("5號出口");
-                mrtview.setImageResource(R.drawable.metrotaipei2);
-                infolinear2.setVisibility(View.VISIBLE);
-                closebutton.setVisibility(View.VISIBLE);
-                info.setVisibility(View.VISIBLE);
-                info.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
-                closebutton.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                if (recommend) {
+                    currentlocation.setText("現在位置 : 西門站");
+                    goal.setText("東門站");
+                    infoline1.setText("松山新店線");
+                    int greencolor2 = Color.parseColor("#67C6A6");
+                    infoline1.setTextColor(greencolor2);
+                    infoline2.setText("淡水信義線");
+                    stopnum.setText("2");
+                    stopnum2.setText("1");
+                    stop1.setText("中正紀念堂站");
+                    stop2.setText("東門站");
+                    exit.setText("5號出口");
+                    mrtview.setImageResource(R.drawable.metrotaipei5);
+                    infolinear2.setVisibility(View.VISIBLE);
+                    closebutton.setVisibility(View.VISIBLE);
+                    info.setVisibility(View.VISIBLE);
+                    info.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                    closebutton.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                }
                 break;
             case R.id.place3:
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Pos[2], 15));
-                currentlocation.setText("現在位置 : 東門站");
-                goal.setText("劍潭站");
-                infoline1.setText("淡水信義線");
-                int redcolor= Color.parseColor("#EC7A8E");
-                infoline1.setTextColor(redcolor);
-                stopnum.setText("8");
-                stop1.setText("劍潭站");
-                exit.setText("1號出口");
-                mrtview.setImageResource(R.drawable.metrotaipei3);
-                infolinear2.setVisibility(View.INVISIBLE);
-                info.setVisibility(View.VISIBLE);
-                closebutton.setVisibility(View.VISIBLE);
-                info.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
-                closebutton.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                if (recommend) {
+                    currentlocation.setText("現在位置 : 東門站");
+                    goal.setText("劍潭站");
+                    infoline1.setText("淡水信義線");
+                    int redcolor = Color.parseColor("#EC7A8E");
+                    infoline1.setTextColor(redcolor);
+                    stopnum.setText("8");
+                    stop1.setText("劍潭站");
+                    exit.setText("1號出口");
+                    mrtview.setImageResource(R.drawable.metrotaipei6);
+                    infolinear2.setVisibility(View.INVISIBLE);
+                    info.setVisibility(View.VISIBLE);
+                    closebutton.setVisibility(View.VISIBLE);
+                    info.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                    closebutton.startAnimation(AnimationUtils.loadAnimation(this, R.anim.show_character));
+                }
                 break;
         }
     }
 
     public class myViewPagerAdapter extends PagerAdapter {
         private ArrayList<View> mListViews;
-
         public myViewPagerAdapter(ArrayList<View> mListViews) {
             this.mListViews = mListViews;
         }
@@ -909,7 +914,7 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
                             mBluetoothAdapter.cancelDiscovery();
                         }
                     }*/
-                    if (device.getName().equals(ID_target)){
+                    /*if (device.getName().equals(ID_target)){
                         if (!found) {
                             final Vibrator vibrator=(Vibrator)getSystemService(Service.VIBRATOR_SERVICE);
                             vibrator.vibrate(1000);
@@ -929,7 +934,7 @@ public class SearchMapActivity extends AppCompatActivity implements View.OnClick
                             found=true;
 
                         }
-                    }
+                    }*/
                 }
                 catch(Exception e){
                 }

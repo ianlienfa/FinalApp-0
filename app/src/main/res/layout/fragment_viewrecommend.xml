@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background">
@@ -87,6 +89,7 @@
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView4">
 
@@ -111,7 +114,7 @@
                     android:layout_width="65dp"
                     android:layout_height="65dp"
                     android:layout_marginLeft="20dp"
-                    android:src="@drawable/tamsui3"/>
+                    android:src="@drawable/tamsui3" />
 
                 <LinearLayout
                     android:layout_width="150dp"
@@ -137,16 +140,16 @@
                             android:id="@+id/tamsuitext1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="14dp"
-                            android:text="於 " />
+                            android:text="於 "
+                            android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/tamsuiviewlocation1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="14dp"
+                            android:text="圓山站1號出口"
                             android:textColor="#82CCE1"
-                            android:text="圓山站1號出口" />
+                            android:textSize="14dp" />
                     </LinearLayout>
 
                     <TextView
@@ -160,13 +163,14 @@
                         android:id="@+id/tamsuistar1"
                         android:layout_width="wrap_content"
                         android:layout_height="15dp"
-                        android:src="@drawable/star3"
-                        android:scaleType="fitStart" />
+                        android:scaleType="fitStart"
+                        android:src="@drawable/star3" />
                 </LinearLayout>
+
                 <ImageButton
                     android:id="@+id/view_add1"
-                    android:layout_height="25dp"
                     android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:background="#00000000"
                     android:scaleType="fitXY"
                     app:srcCompat="@drawable/add" />
@@ -186,8 +190,8 @@
                     android:id="@+id/tamsuiview2"
                     android:layout_width="65dp"
                     android:layout_height="65dp"
-                    android:src="@drawable/tamsui2"
-                    android:layout_marginLeft="20dp" />
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/tamsui2" />
 
                 <LinearLayout
                     android:layout_width="150dp"
@@ -236,13 +240,14 @@
                         android:id="@+id/tamsuistar2"
                         android:layout_width="wrap_content"
                         android:layout_height="15dp"
-                        android:src="@drawable/star4"
-                        android:scaleType="fitStart" />
+                        android:scaleType="fitStart"
+                        android:src="@drawable/star4" />
                 </LinearLayout>
+
                 <ImageButton
                     android:id="@+id/view_add2"
-                    android:layout_height="25dp"
                     android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:background="#00000000"
                     android:scaleType="fitXY"
                     app:srcCompat="@drawable/add" />
@@ -262,8 +267,8 @@
                     android:id="@+id/tamsuiview3"
                     android:layout_width="65dp"
                     android:layout_height="65dp"
-                    android:src="@drawable/tamsui1"
-                    android:layout_marginLeft="20dp" />
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/tamsui1" />
 
                 <LinearLayout
                     android:layout_width="150dp"
@@ -289,16 +294,16 @@
                             android:id="@+id/text3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="14dp"
-                            android:text="於 " />
+                            android:text="於 "
+                            android:textSize="14dp" />
 
                         <TextView
                             android:id="@+id/tamsuiviewlocation3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="14dp"
+                            android:text="淡水站1號出口"
                             android:textColor="#82CCE1"
-                            android:text="淡水站1號出口" />
+                            android:textSize="14dp" />
                     </LinearLayout>
 
                     <TextView
@@ -312,18 +317,30 @@
                         android:id="@+id/tamsuistar3"
                         android:layout_width="wrap_content"
                         android:layout_height="15dp"
-                        android:src="@drawable/star4"
-                        android:scaleType="fitStart" />
+                        android:scaleType="fitStart"
+                        android:src="@drawable/star4" />
                 </LinearLayout>
+
                 <ImageButton
                     android:id="@+id/view_add3"
-                    android:layout_height="25dp"
                     android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:background="#00000000"
                     android:scaleType="fitXY"
                     app:srcCompat="@drawable/add" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+    <ImageButton
+        android:id="@+id/ok"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="#00000000"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/ok"
+        android:layout_marginStart="160dp"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView4"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -16,7 +16,7 @@
         android:layout_marginLeft="44.16dp"
         android:layout_marginTop="85.94dp"
         android:gravity="center"
-        android:text="北投站"
+        android:text="復興崗站"
         android:textColor="#FFFFFF"
         android:textSize="46sp"
         android:textStyle="bold"
@@ -82,12 +82,10 @@
 
     <ImageView
         android:id="@+id/beitouimage4"
-
         app:srcCompat="@drawable/p2"
         android:layout_width="74.88dp"
         android:layout_height="74.88dp"
         android:layout_marginTop="537.8dp"
-
         android:layout_alignStart="@id/beitouimage2"
         android:layout_alignParentTop="true"/>
 </RelativeLayout>
