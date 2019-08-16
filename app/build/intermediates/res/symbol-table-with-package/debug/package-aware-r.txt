@@ -759,6 +759,7 @@ drawable custom4
 drawable cuteboy_nfc_vis
 drawable dcardbackground
 drawable dcardwrite
+drawable deru
 drawable diary
 drawable diaryshape
 drawable donestamp
@@ -773,6 +774,7 @@ drawable example_image1_ian
 drawable example_image4_ian
 drawable firework
 drawable first_nfc_alert
+drawable first_play
 drawable follow
 drawable follow_shape
 drawable gg23
@@ -809,6 +811,7 @@ drawable metrotaipei5
 drawable metrotaipei6
 drawable microphone
 drawable mypleasant
+drawable nanazui
 drawable navigation
 drawable notification_action_background
 drawable notification_bg
@@ -857,8 +860,11 @@ drawable place
 drawable place1
 drawable place2
 drawable place3
+drawable place_to_go
+drawable place_to_see
 drawable plus
 drawable pressfollow_shape
+drawable promotion
 drawable question
 drawable questionmark
 drawable rank
@@ -874,6 +880,7 @@ drawable runtextshape
 drawable script
 drawable search
 drawable seat
+drawable second_play
 drawable send
 drawable shape
 drawable shulin
@@ -885,17 +892,20 @@ drawable station
 drawable t101
 drawable tagshape
 drawable taida
+drawable taipei_before_navagation_background
 drawable taipeiimage1
 drawable taipeiimage2
 drawable taipeistation
 drawable tamsui1
 drawable tamsui2
 drawable tamsui3
+drawable thumbs_up
 drawable time1
 drawable time2
 drawable timelimiteventback
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable tour_guide_profile
 drawable treasure
 drawable triplogchat
 drawable tripplogbackground
@@ -1305,6 +1315,7 @@ id textView2
 id textView3
 id textView4
 id textView5
+id thumbs_up
 id time
 id title
 id titleDividerNoCustom
@@ -1420,6 +1431,7 @@ layout activity_recommend
 layout activity_search_map
 layout activity_search_view
 layout activity_taipei101
+layout activity_taipei_before_navagation
 layout activity_tamsui
 layout activity_time_limit_event
 layout activity_zoo

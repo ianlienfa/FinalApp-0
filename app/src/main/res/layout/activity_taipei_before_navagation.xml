@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TaipeiBeforeNavagationActivity"
+    android:background="@drawable/taipei_before_navagation_background"
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="34.44dp"
+        android:layout_marginTop="72.36dp"
+
+        android:text="新。\n初遊台北必去景點"
+        android:textColor="#FFFFFF"
+
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    
+    <Button
+        android:id="@+id/thumbs_up"
+        android:layout_width="47dp"
+        android:layout_height="47dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="290dp"
+        android:layout_marginTop="72dp"
+
+        android:background="@drawable/thumbs_up"
+        />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="158dp"
+        android:src="@drawable/deru" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="173dp"
+
+        android:text="from 熱帶風情嚮導奈奈子"
+        android:textColor="#F2F2F2"
+
+        android:textSize="10sp"
+
+
+        />
+    
+    <ScrollView
+        android:layout_width="292dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="240dp"
+        >
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="292dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="301dp"
+                android:layout_height="120dp"
+
+                android:src="@drawable/place_to_go"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="64dp"
+                android:text="西門紅樓"
+
+                android:textColor="#FBFBFB"
+                android:textSize="9sp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="98dp"
+                android:layout_marginTop="90dp"
+                android:text="鼎泰豐"
+
+                android:textColor="#FBFBFB"
+                android:textSize="9sp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="225dp"
+                android:layout_marginTop="108dp"
+
+                android:text="士林夜市"
+                android:textColor="#FBFBFB"
+
+                android:textSize="9sp"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="130dp"
+                android:text="西門紅樓"
+
+                android:textColor="#FBFBFB"
+                android:textSize="17sp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="160dp"
+                android:text="老地方就是要醬玩!"
+
+                android:textColor="#E8E8E8"
+                android:textSize="13sp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+                />
+
+            <Button
+                android:layout_width="175dp"
+                android:layout_height="99dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="190dp"
+
+                android:background="@drawable/first_play"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="310dp"
+            android:text="哈囉~ 又是北比我啦!\n今天北比要帶大家去哪裡呢?\n沒錯就是西門紅樓啦!
+大家請先往入口走喔，在入口請先看北比第一支影片!"
+
+            android:textColor="#E2E2E2"
+            android:textSize="11sp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="380dp"
+                android:text="------------------------------------------------------------\n\n恩~不知道大家有沒有乖乖跟著北比走呢，不能偷偷脫隊呦，不然北比會傷心^^\n接下來大家走到這裡的時候，請觀看北比第二支影片!"
+
+                android:textColor="#E2E2E2"
+                android:textSize="11sp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+                />
+
+
+            <Button
+                android:layout_width="66dp"
+                android:layout_height="63dp"
+                android:layout_marginStart="84dp"
+                android:layout_marginTop="480dp"
+
+                android:background="@drawable/second_play"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="118.5dp"
+                android:layout_height="62.5dp"
+                android:layout_marginStart="172dp"
+                android:layout_marginTop="480dp"
+                android:src="@drawable/place_to_see"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="560dp"
+                android:text="這裡一定要去紀念品店買一個古色古香的紀念品作紀念的!\n偷偷告訴大家一個秘密喔~\n北比跟這邊的老闆有合作，只要是看北比的導覽影片的朋友都可以打折ㄟ，趕快去跟老闆買一點可愛的東西送女朋友吧~不然送北比也可以喔!"
+
+                android:textColor="#E2E2E2"
+                android:textSize="11sp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+                />
+
+            <ImageView
+                android:layout_width="242dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="650dp"
+                android:src="@drawable/promotion"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="820dp"
+                android:text="哇~一天就這樣結束了，北比好累喔!\n大家如果喜歡北比的導覽的話別忘了按讚和訂閱北比喔!\n還有呀，每次北比都是一個人出去玩很無聊耶，歡迎大家預約北比的獨家真人導覽喔!!"
+
+                android:textColor="#E2E2E2"
+                android:textSize="11sp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+                />
+
+
+            <Button
+                android:layout_width="47.14dp"
+                android:layout_height="56.83dp"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="900dp"
+                android:background="@drawable/nanazui"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+                />
+        </android.support.constraint.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+
+</RelativeLayout>

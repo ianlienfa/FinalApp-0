@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TimeLimitEventActivity"></activity>
+        <activity android:name=".TaipeiBeforeNavagationActivity"></activity>
+        <activity android:name=".TimeLimitEventActivity" />
         <activity android:name=".RecommendActivity" />
         <activity android:name=".EmptyPostActivity" />
         <activity android:name=".TamsuiActivity" />

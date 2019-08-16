@@ -854,7 +854,7 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
                             mBluetoothAdapter.cancelDiscovery();
                         }
                     }
-                    /*if (device.getName().equals(ID_target)){
+                    if (device.getName().equals(ID_target)){
                         if (!found) {
                             final Vibrator vibrator=(Vibrator)getSystemService(Service.VIBRATOR_SERVICE);
                             vibrator.vibrate(1000);
@@ -874,7 +874,7 @@ public class TamsuiActivity extends AppCompatActivity implements View.OnClickLis
                             found=true;
 
                         }
-                    }*/
+                    }
                 }
                 catch(Exception e){
                 }

@@ -399,12 +399,14 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 startActivity(penIntent);
                 break;
             case R.id.recommend2:
-                Intent recommendIntent = new Intent(Main2Activity.this, RecommendActivity.class);
-                recommendIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                Bundle recommendbundle=new Bundle();
-                recommendbundle.putString("Username",username);
-                recommendIntent.putExtras(recommendbundle);
-                startActivity(recommendIntent);
+//                Intent recommendIntent = new Intent(Main2Activity.this, RecommendActivity.class);
+//                recommendIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                Bundle recommendbundle=new Bundle();
+//                recommendbundle.putString("Username",username);
+//                recommendIntent.putExtras(recommendbundle);
+//                startActivity(recommendIntent);
+                Intent taipei_before_navigation = new Intent(Main2Activity.this, TaipeiBeforeNavagationActivity.class);
+                startActivity(taipei_before_navigation);
                 break;
             case R.id.limited1:
                 Intent timelimitedevent = new Intent(Main2Activity.this, TimeLimitEventActivity.class);
