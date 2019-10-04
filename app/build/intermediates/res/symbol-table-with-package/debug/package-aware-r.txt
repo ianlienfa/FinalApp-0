@@ -724,6 +724,7 @@ drawable boy
 drawable bubble
 drawable camera
 drawable circle
+drawable city_light_love
 drawable closebutton
 drawable collect
 drawable collect1
@@ -775,8 +776,12 @@ drawable example_image4_ian
 drawable firework
 drawable first_nfc_alert
 drawable first_play
+drawable flower_countryside
+drawable flowerbackground
 drawable follow
+drawable follow2
 drawable follow_shape
+drawable followed2
 drawable gg23
 drawable girl
 drawable go
@@ -793,6 +798,8 @@ drawable introbackground
 drawable knowbutton
 drawable light1
 drawable light2
+drawable linepaybackground
+drawable linepayicon
 drawable locked
 drawable mainbackground
 drawable maintriplog
@@ -812,6 +819,7 @@ drawable metrotaipei6
 drawable microphone
 drawable mypleasant
 drawable nanazui
+drawable nanazuibackground
 drawable navigation
 drawable notification_action_background
 drawable notification_bg
@@ -865,6 +873,7 @@ drawable place_to_see
 drawable plus
 drawable pressfollow_shape
 drawable promotion
+drawable qrcode
 drawable question
 drawable questionmark
 drawable rank
@@ -884,6 +893,7 @@ drawable second_play
 drawable send
 drawable shape
 drawable shulin
+drawable signup
 drawable star2
 drawable star3
 drawable star4
@@ -1115,6 +1125,9 @@ id line3
 id linearLayout
 id linearLayout1
 id linearLayout3
+id linepayicon
+id linepaylayout
+id linepaytext
 id listMode
 id listView1
 id listView2
@@ -1144,6 +1157,17 @@ id missionlong
 id mrtview
 id multiply
 id name
+id nanazui
+id nanazuifollow
+id nanazuifollownum
+id nanazuiintro
+id nanazuiname
+id nanazuipic1
+id nanazuipic2
+id nanazuipic3
+id nanazuiprofile
+id nanazuitext1
+id nanazuitext2
 id navigate
 id navigatewater
 id never
@@ -1157,6 +1181,8 @@ id ok
 id ok2
 id on
 id onTouch
+id online1
+id online2
 id oval
 id packed
 id pager
@@ -1186,6 +1212,7 @@ id postimage2
 id postimage3
 id progress_circular
 id progress_horizontal
+id qrcode
 id radio
 id rank
 id ratingBar
@@ -1229,6 +1256,8 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id signup
+id signuplayout
 id spacer
 id split_action_bar
 id spread
@@ -1311,10 +1340,13 @@ id text5
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textView
+id textView10
 id textView2
 id textView3
 id textView4
 id textView5
+id textView8
+id textView9
 id thumbs_up
 id time
 id title
@@ -1426,6 +1458,7 @@ layout activity_main
 layout activity_main2
 layout activity_memory_write
 layout activity_mrtstation
+layout activity_nanazui
 layout activity_post_write
 layout activity_recommend
 layout activity_search_map

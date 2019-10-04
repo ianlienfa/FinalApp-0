@@ -269,6 +269,7 @@
 
 
             <Button
+                android:id="@+id/nanazui"
                 android:layout_width="47.14dp"
                 android:layout_height="56.83dp"
                 android:layout_marginStart="110dp"
