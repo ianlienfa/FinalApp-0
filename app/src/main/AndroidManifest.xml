@@ -40,6 +40,10 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD1zHsRnjNmkG6A6ZVIV2ttJiUkXEEF2kc" />
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false"
+            />
 
         <activity android:name=".MRTStationActivity" />
         <activity android:name=".BeitouActivity" />
